@@ -39,7 +39,7 @@ if not os.path.exists(output_folder):
 with open(output_file_path, 'w', encoding='utf-8') as output_file:
     for i, location in enumerate(locations):
         search_url = f"https://www.google.com/search?q={location.replace(' ', '+')}"
-        time.sleep(0.5)
+        time.sleep(0.5) #asdads
         driver.get(search_url)
         time.sleep(3)
 
