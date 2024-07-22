@@ -4,6 +4,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 import time
 import os.path
+import csv
 from loguru import logger  
 
 def configure_driver():
@@ -12,7 +13,7 @@ def configure_driver():
 
 def search_and_save_urls(driver, locations, output_file_path):
     """
-    It searches Google for each location in the list, finds the URL of the first search result, and saves them to a file.
+    It searches Google for each location in the list, finds the URL of the first search result, and saves them to a CSV file.
     
     Args:
     - driver: WebDriver object for browser management
@@ -20,7 +21,10 @@ def search_and_save_urls(driver, locations, output_file_path):
     - output_file_path: Path to the output file where URLs are stored
     """
     try:
-        with open(output_file_path, 'w', encoding='utf-8') as output_file:
+        with open(output_file_path, 'w', encoding='utf-8', newline='') as output_file:
+            csv_writer = csv.writer(output_file)
+            csv_writer.writerow(["Index", "Location", "URL"])  # Write the header
+
             for i, location in enumerate(locations):
                 # We generate a URL for a Google search with the given location
                 search_url = f"https://www.google.com/search?q={location.replace(' ', '+')}"
@@ -43,22 +47,20 @@ def search_and_save_urls(driver, locations, output_file_path):
                     new_url = driver.current_url
                     logger.success(f"URL found: {new_url}")  
 
-                    # We write the URL in the output file with a sequence number
-                    output_file.write(f"{i + 1}. {new_url}\n")
+                    # We write the URL in the CSV file with a sequence number and location
+                    csv_writer.writerow([i + 1, location, new_url])
 
                 except Exception as e:
-                   
                     logger.error(f"An error occurred for the location {location}: {e}")
 
     except Exception as e:
-        
         logger.error(f"An error occurred while working with the file: {e}")
 
 def main():
     locations = [
         'Social Explorer' # Pretraga 
     ]
-    output_file_path = r'C:\Users\User\.vscode\Projekti\URL_Check_Script\urls.txt'  
+    output_file_path = r'C:\Users\User\.vscode\Projekti\URL_Check_Script\urls.csv'  # Absolute path to the output CSV file
 
     driver = configure_driver()  # Configure the WebDriver
     search_and_save_urls(driver, locations, output_file_path)  # Start searching and saving URLs
