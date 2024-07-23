@@ -1,63 +1,69 @@
-# URL Search and Save Script
+# URL Check Script
 
-## Project Overview
+This script searches Google for each location from a list, finds the URL of the first search result, and saves them to a CSV file. The script can use either `requests` or `selenium` for searching, with `requests` being the default method.
 
-This project is a Python script that automates the process of searching for URLs using Google and saving the first result's URL to a specified file. It uses the Selenium library for browser automation and Loguru for logging.
-
-## Prerequisites
-
-Before you can run this script, ensure you have the following installed:
+## Requirements
 
 - Python 3.x
-- Selenium
-- WebDriver Manager for Python
-- Google Chrome browser
-- Loguru
+- The following Python libraries:
+  - `argparse`
+  - `csv`
+  - `time`
+  - `requests`
+  - `beautifulsoup4`
+  - `selenium`
+  - `webdriver_manager`
+  - `loguru`
+  - `urllib`
 
-You can install the required Python libraries using pip:
+You can install them using the `pip` command:
 
-```bash
-pip install selenium webdriver-manager loguru
+```sh
+pip install argparse csv time requests beautifulsoup4 selenium webdriver_manager loguru urllib3
 ```
 
-## How to Run
+## Usage
 
-**Prepare Your Locations**: Edit the **locations** list in the **main()** function to include the locations you want to search for.
+### Configure WebDriver
+
+The **configure_driver()** function sets up the Chrome WebDriver using WebDriver Manager to handle the driver installation automatically.
+
+### Search and Save URLs
+
+**_ Using selenium _**
+The **_ search_and_save_urls_selenium(driver, locations, output_file_path) _** function:
+
+- Accepts a WebDriver object, a list of locations to search for, and the path to the output file.
+- Iterates over the list of locations, performs a Google search for each, and saves the URL of the first search result.
+
+**_ Using requests _**
+The **_ search_and_save_urls_requests(locations, output_file_path) _** function:
+
+- Accepts a list of locations to search for and the path to the output file.
+- Iterates over the list of locations, performs a Google search for each using HTTP requests, and saves the URL of the first search result.
+
+### Main Function
+
+The **_ main() _** function initializes the list of locations to search for and the path to the output file, configures the WebDriver if the selenium method is chosen, and calls the appropriate function to search and save URLs.
+
+### Running the Script
+
+To run the script, use the following command in your terminal:
+
+#### Using requests (default method)
 
 ```bash
-locations = [
-    'Social Explorer',  # Example location
-    # Add more locations here
-]
+ python main_script.py
 ```
 
-Set Output File Path: Update the **output_file_path** variable in the **main()** function to specify where you want to save the URLs.
+#### Using selenium
 
 ```bash
-output_file_path = r'C:\path\to\your\output_file.txt'
+ python main_script.py --method selenium
 ```
 
-**Execute the Script**: Run the script using Python. Open your terminal and execute:
+### Additional Notes
 
-```bash
-python main_script.py
-```
-
-## What to Expect
-
-- The script will perform Google searches for each location in the locations list.
-- For each search, it will find and click on the first search result.
-- It will then save the URL of the clicked result to the urls.txt file.
-- The urls.txt file will be created or overwritten at the specified location with the URLs of the search results.
-
-## Logging
-
-The script uses the Loguru library to log various actions and events:
-
-- URLs being searched.
-- Loaded page URLs.
-- Success or error messages for finding and saving URLs.
-
-## Error Handling
-
-- If an error occurs during the search or file operations, it will be logged with details about the issue.
+- Ensure you have all required libraries installed.
+- Adjust the output_file_path in the main() function according to your system.
+- The requests method is the default due to its speed and efficiency, but selenium can be useful for more complex searches that require JavaScript execution.

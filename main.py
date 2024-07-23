@@ -1,19 +1,22 @@
+import argparse
+import csv
+import time
+import requests
+from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
-import time
-import os.path
-import csv
-from loguru import logger  
+from webdriver_manager.chrome import ChromeDriverManager
+from loguru import logger
+from urllib.parse import urljoin
 
 def configure_driver():
-    """Configures and resets the Chrome WebDriver"""
+    """Configures and returns the Chrome WebDriver"""
     return webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
-def search_and_save_urls(driver, locations, output_file_path):
+def search_and_save_urls_selenium(driver, locations, output_file_path):
     """
-    It searches Google for each location in the list, finds the URL of the first search result, and saves them to a CSV file.
+    Searches Google for each location in the list, finds the URL of the first search result, and saves them to a CSV file using Selenium.
     
     Args:
     - driver: WebDriver object for browser management
@@ -21,34 +24,26 @@ def search_and_save_urls(driver, locations, output_file_path):
     - output_file_path: Path to the output file where URLs are stored
     """
     try:
-        with open(output_file_path, 'w', encoding='utf-8', newline='') as output_file:
-            csv_writer = csv.writer(output_file)
-            csv_writer.writerow(["Index", "Location", "URL"])  # Write the header
+        with open(output_file_path, 'w', newline='', encoding='utf-8') as output_file:
+            writer = csv.writer(output_file)
+            writer.writerow(['Index', 'Location', 'URL'])
 
             for i, location in enumerate(locations):
-                # We generate a URL for a Google search with the given location
                 search_url = f"https://www.google.com/search?q={location.replace(' ', '+')}"
-                logger.info(f"URL search: {search_url}")  
-                time.sleep(0.5)  
+                logger.info(f"Searching URL: {search_url}")
+                time.sleep(0.5)
                 
-                # We open the URL in the browser
                 driver.get(search_url)
-                logger.info(f"Page loaded: {driver.current_url}")  
-                time.sleep(3)  
+                logger.info(f"Page loaded: {driver.current_url}")
+                time.sleep(3)
 
                 try:
-                    # We find the first search result using a CSS selector
-                    first_element = driver.find_element(By.CSS_SELECTOR, '.LC20lb.MBeuO.DKV0Md')
-                    logger.info("First search result found")  
-                    first_element.click()  # Click on the first result
-                    time.sleep(3)  
+                    first_element = driver.find_element(By.CSS_SELECTOR, '.yuRUbf a')
+                    logger.info("First search result found")
+                    new_url = first_element.get_attribute('href')
+                    logger.success(f"Found URL: {new_url}")
 
-                    # We get the current URL after clicking on the first result
-                    new_url = driver.current_url
-                    logger.success(f"URL found: {new_url}")  
-
-                    # We write the URL in the CSV file with a sequence number and location
-                    csv_writer.writerow([i + 1, location, new_url])
+                    writer.writerow([i + 1, location, new_url])
 
                 except Exception as e:
                     logger.error(f"An error occurred for the location {location}: {e}")
@@ -56,15 +51,65 @@ def search_and_save_urls(driver, locations, output_file_path):
     except Exception as e:
         logger.error(f"An error occurred while working with the file: {e}")
 
-def main():
-    locations = [
-        'Social Explorer' # Pretraga 
-    ]
-    output_file_path = r'C:\Users\User\.vscode\Projekti\URL_Check_Script\urls.csv'  # Absolute path to the output CSV file
+def search_and_save_urls_requests(locations, output_file_path):
+    """
+    Searches Google for each location in the list, finds the URL of the first search result, and saves them to a CSV file using requests.
+    
+    Args:
+    - locations: List of locations to be searched
+    - output_file_path: Path to the output file where URLs are stored
+    """
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+    }
+    
+    try:
+        with open(output_file_path, 'w', newline='', encoding='utf-8') as output_file:
+            writer = csv.writer(output_file)
+            writer.writerow(['Index', 'Location', 'URL'])
 
-    driver = configure_driver()  # Configure the WebDriver
-    search_and_save_urls(driver, locations, output_file_path)  # Start searching and saving URLs
-    driver.quit() 
+            for i, location in enumerate(locations):
+                search_url = f"https://www.google.com/search?q={location.replace(' ', '+')}"
+                logger.info(f"Searching URL: {search_url}")
+                
+                try:
+                    response = requests.get(search_url, headers=headers)
+                    response.raise_for_status()  # Raise an exception for HTTP errors
+                    
+                    soup = BeautifulSoup(response.text, 'html.parser')
+                    first_element = soup.select_one('.yuRUbf a')
+                    
+                    if first_element:
+                        relative_url = first_element['href']
+                        new_url = urljoin('https://www.google.com', relative_url)
+                        logger.success(f"Found URL: {new_url}")
+                        writer.writerow([i + 1, location, new_url])
+                    else:
+                        logger.warning(f"No search result found for location {location}")
+                
+                except Exception as e:
+                    logger.error(f"An error occurred for the location {location}: {e}")
+                    
+    except Exception as e:
+        logger.error(f"An error occurred while working with the file: {e}")
+
+def main():
+    parser = argparse.ArgumentParser(description='Search for URLs using Google and save them to a file.')
+    parser.add_argument('--method', choices=['selenium', 'requests'], default='requests',
+                        help='Method to use for searching: "selenium" or "requests" (default: "requests")')
+    args = parser.parse_args()
+    
+    locations = [
+        'OLX'  # Search query
+    ]
+    output_file_path = r'C:\Users\User\.vscode\Projekti\URL_Check_Script\urls.csv'
+    
+    if args.method == 'selenium':
+        driver = configure_driver()
+        search_and_save_urls_selenium(driver, locations, output_file_path)
+        driver.quit()
+    else:
+        search_and_save_urls_requests(locations, output_file_path)
 
 if __name__ == "__main__":
     main()
