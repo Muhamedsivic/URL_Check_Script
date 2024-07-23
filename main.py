@@ -31,11 +31,11 @@ def search_and_save_urls_selenium(driver, locations, output_file_path):
             for i, location in enumerate(locations):
                 search_url = f"https://www.google.com/search?q={location.replace(' ', '+')}"
                 logger.info(f"Searching URL: {search_url}")
-                time.sleep(0.5)
+                time.sleep(0.5)  # Sleep to avoid hitting the server too quickly
                 
                 driver.get(search_url)
                 logger.info(f"Page loaded: {driver.current_url}")
-                time.sleep(3)
+                time.sleep(3)  # Allow time for the page to fully load
 
                 try:
                     first_element = driver.find_element(By.CSS_SELECTOR, '.yuRUbf a')
@@ -94,6 +94,7 @@ def search_and_save_urls_requests(locations, output_file_path):
         logger.error(f"An error occurred while working with the file: {e}")
 
 def main():
+    # Set up argument parsing
     parser = argparse.ArgumentParser(description='Search for URLs using Google and save them to a file.')
     parser.add_argument('--method', choices=['selenium', 'requests'], default='requests',
                         help='Method to use for searching: "selenium" or "requests" (default: "requests")')
@@ -105,11 +106,13 @@ def main():
     
     locations = []
 
+    # Read locations from the input file
     with open(args.input_file, 'r', newline='', encoding='utf-8') as input_file:
         reader = csv.reader(input_file)
         next(reader)  # Skip header row
         locations = [row[0] for row in reader]  # Assuming locations are in the first column
     
+    # Choose search method based on the provided argument
     if args.method == 'selenium':
         driver = configure_driver()
         search_and_save_urls_selenium(driver, locations, args.output_file)
