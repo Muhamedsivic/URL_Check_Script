@@ -97,38 +97,25 @@ def main():
     parser = argparse.ArgumentParser(description='Search for URLs using Google and save them to a file.')
     parser.add_argument('--method', choices=['selenium', 'requests'], default='requests',
                         help='Method to use for searching: "selenium" or "requests" (default: "requests")')
+    parser.add_argument('--input_file', type=str, required=True, 
+                        help='Path to the CSV file containing the list of locations to be searched.')
+    parser.add_argument('--output_file', type=str, required=True,
+                        help='Path to the CSV file where the search results will be saved.')
     args = parser.parse_args()
     
-    locations = [
-    'WEST RAPID STORAGE UNITS, 510 INDUSTRIAL AVE , SD, 33641',
-    'MATEO AVENUE MINI-STORAGE, 1162 SAN MATEO AVE , CA, 04441',
-    'SHIELDS MOUNTAIN MINI STORAGE, 2547 MCGILL ST , TN, 20345',
-    'BERWICK SELF STORAGE AT 560 PORTLAND ST, 560 PORTLAND ST ,ME, 64120',
-    'STORAGE ZONE SELF STORAGE AND BUSINESS CENTERS, 2240 PEACHTREE ST, FL, 57109',
-    'East Longmeadow Self Storage, LLC , 91 Industrial Dr , MA, 44680',
-    'Agate Road Mini Storage & Rv, 1620 E Agate Rd , WA, 65154',
-    'Park 150 Self Service Storage, 1602 E University Ave ,IL, 65068',
-    'STORAGE WORLD, 350 SWEDESBORO AVE ,NJ, 26371',
-    'Mountain Mini Storage, 31280 US Highway 2",MT, 54149',
-    'Lufkin Climate Controlled Storage, 3540 US Hwy 69 ,TX, 66516',
-    'PUBLIC STORAGE, 2629 S RANGELINE RD ,MO, 20867',
-    'Lake Park Self Storage, 806 Highway 10 ,MN, 54125',
-    'Power Self Storage - Kuakini, 76-6201 Walua Rd ,HI, 41355',
-    'Extra Space Storage, 885 Centre St , MA, 44020',
-    'Devon Self Storage, LLC - Devon Self Storage - DCT, 810 Gladstell St, TX, 74297',
-    'Tmg Storage Units, 427 S Harrison St,IL, 30295',
-    'Comstor Self Storage  Russells Point, 6964 OH-235, OH, 39410',
-    'HEIGHTS SELF STORAGE,W 18TH ST, TX, 46306',
-    'HIGHWAY 63 MINI STORAGE, 2200 US HWY 63, AR, 55363', # Search query
-    ]
-    output_file_path = r'C:\Users\User\.vscode\Projekti\URL_Check_Script\urls.csv'
+    locations = []
+
+    with open(args.input_file, 'r', newline='', encoding='utf-8') as input_file:
+        reader = csv.reader(input_file)
+        next(reader)  # Skip header row
+        locations = [row[0] for row in reader]  # Assuming locations are in the first column
     
     if args.method == 'selenium':
         driver = configure_driver()
-        search_and_save_urls_selenium(driver, locations, output_file_path)
+        search_and_save_urls_selenium(driver, locations, args.output_file)
         driver.quit()
     else:
-        search_and_save_urls_requests(locations, output_file_path)
+        search_and_save_urls_requests(locations, args.output_file)
 
 if __name__ == "__main__":
     main()

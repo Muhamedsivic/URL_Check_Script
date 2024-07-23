@@ -1,69 +1,75 @@
-# URL Check Script
+# URL Search Script
 
-This script searches Google for each location from a list, finds the URL of the first search result, and saves them to a CSV file. The script can use either `requests` or `selenium` for searching, with `requests` being the default method.
+## Description
 
-## Requirements
+This script searches Google for each location listed in an input CSV file and saves the URL of the first search result to an output CSV file. The script supports two search methods: `Selenium` and `requests`.
 
-- Python 3.x
-- The following Python libraries:
-  - `argparse`
-  - `csv`
-  - `time`
-  - `requests`
-  - `beautifulsoup4`
-  - `selenium`
-  - `webdriver_manager`
-  - `loguru`
-  - `urllib`
+- **Selenium**: Uses Chrome WebDriver for browsing and collecting results.
+- **Requests**: Uses HTTP requests to search and collect results.
 
-You can install them using the `pip` command:
+## Installation
 
-```sh
-pip install argparse csv time requests beautifulsoup4 selenium webdriver_manager loguru urllib3
+**Clone the repository:**
+
+```bash
+git clone https://github.com/Muhamedsivic/URL_Check_Script
+cd URL_Check_Script
+```
+
+### Create a virtual environment (optional but recommended):
+
+```bash
+   python -m venv env
+source env/bin/activate  # On Windows: env\Scripts\activate
+```
+
+### Install dependencies:
+
+```bash
+  pip install -r requirements.txt
 ```
 
 ## Usage
 
-### Configure WebDriver
-
-The **configure_driver()** function sets up the Chrome WebDriver using WebDriver Manager to handle the driver installation automatically.
-
-### Search and Save URLs
-
-**_ Using selenium _**
-The **_ search_and_save_urls_selenium(driver, locations, output_file_path) _** function:
-
-- Accepts a WebDriver object, a list of locations to search for, and the path to the output file.
-- Iterates over the list of locations, performs a Google search for each, and saves the URL of the first search result.
-
-**_ Using requests _**
-The **_ search_and_save_urls_requests(locations, output_file_path) _** function:
-
-- Accepts a list of locations to search for and the path to the output file.
-- Iterates over the list of locations, performs a Google search for each using HTTP requests, and saves the URL of the first search result.
-
-### Main Function
-
-The **_ main() _** function initializes the list of locations to search for and the path to the output file, configures the WebDriver if the selenium method is chosen, and calls the appropriate function to search and save URLs.
-
-### Running the Script
-
-To run the script, use the following command in your terminal:
-
-#### Using requests (default method)
+Run the script with the following command:
 
 ```bash
- python main_script.py
+python your_script.py --method [selenium|requests] --input_file PATH_TO_INPUT_FILE --output_file PATH_TO_OUTPUT_FILE
 ```
 
-#### Using selenium
+## Arguments:
+
+- --method : Search method. Can be selenium or requests. Default is requests.
+- --input_file : Path to the CSV file containing the list of locations to be searched.
+- --output_file : Path to the CSV file where the search results will be saved.
+
+## Example:
+
+If using **_ Selenium _** and your files are in the same directory as the script:
 
 ```bash
- python main_script.py --method selenium
+python your_script.py --method selenium --input_file input_file.csv --output_file output_file.csv
 ```
 
-### Additional Notes
+If using **_ requests: _**
 
-- Ensure you have all required libraries installed.
-- Adjust the output_file_path in the main() function according to your system.
-- The requests method is the default due to its speed and efficiency, but selenium can be useful for more complex searches that require JavaScript execution.
+```bash
+python your_script.py --method requests --input_file input_file.csv --output_file output_file.csv
+```
+
+## Input File Example
+
+**_ input_file.csv _** should look like this:
+
+```bash
+Location
+WEST RAPID STORAGE UNITS, 510 INDUSTRIAL AVE , SD, 33641
+MATEO AVENUE MINI-STORAGE, 1162 SAN MATEO AVE , CA, 04441
+SHIELDS MOUNTAIN MINI STORAGE, 2547 MCGILL ST , TN, 20345
+BERWICK SELF STORAGE AT 560 PORTLAND ST, 560 PORTLAND ST ,ME, 64120
+STORAGE ZONE SELF STORAGE AND BUSINESS CENTERS, 2240 PEACHTREE ST, FL, 57109
+```
+
+## Author
+
+Muhamed Sivic muhamedsivic@gmail.com
