@@ -10,23 +10,10 @@ from webdriver_manager.chrome import ChromeDriverManager
 from loguru import logger
 from urllib.parse import urljoin
 
-def configure_driver():
-    """Configures and returns the Chrome WebDriver"""
-    return webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-
-def check_url_status(url):
-    """Checks the status of a URL and returns the status code"""
-    try:
-        response = requests.head(url, timeout=5)
-        return response.status_code
-    except requests.RequestException as e:
-        logger.error(f"URL check failed: {e}")
-        return None
 
 def search_and_save_urls_selenium(driver, locations, output_file_path):
     """
-    Searches Google for each location in the list, finds the URL of the first search result, 
-    checks its status, and saves them to a CSV file using Selenium.
+    Searches Google for each location in the list, finds the URL of the first search result, and saves them to a CSV file using Selenium.
     
     Args:
     - driver: WebDriver object for browser management
@@ -35,7 +22,7 @@ def search_and_save_urls_selenium(driver, locations, output_file_path):
     """
     with open(output_file_path, 'w', newline='', encoding='utf-8') as output_file:
         writer = csv.writer(output_file)
-        writer.writerow(['Index', 'Location', 'URL', 'Status Code'])
+        writer.writerow(['Index', 'Location', 'URL'])
 
         for i, location in enumerate(locations):
             search_url = f"https://www.google.com/search?q={location.replace(' ', '+')}"
@@ -46,23 +33,21 @@ def search_and_save_urls_selenium(driver, locations, output_file_path):
             logger.info(f"Page loaded: {driver.current_url}")
             time.sleep(3)  # Allow time for the page to fully load
 
-            try:
+            try: #TODO reduce to smaller scope
                 first_element = driver.find_element(By.CSS_SELECTOR, '.yuRUbf a')
                 logger.info("First search result found")
                 new_url = first_element.get_attribute('href')
                 logger.success(f"Found URL: {new_url}")
 
-                status_code = check_url_status(new_url)
-                writer.writerow([i + 1, location, new_url, status_code])
+                writer.writerow([i + 1, location, new_url])
 
-            except Exception as e:
+            except Exception as e: #TODO put more specific exceptions
                 logger.error(f"An error occurred for the location {location}: {e}")
 
 
 def search_and_save_urls_requests(locations, output_file_path):
     """
-    Searches Google for each location in the list, finds the URL of the first search result, 
-    checks its status, and saves them to a CSV file using requests.
+    Searches Google for each location in the list, finds the URL of the first search result, and saves them to a CSV file using requests.
     
     Args:
     - locations: List of locations to be searched
@@ -74,14 +59,14 @@ def search_and_save_urls_requests(locations, output_file_path):
 
     with open(output_file_path, 'w', newline='', encoding='utf-8') as output_file:
         writer = csv.writer(output_file)
-        writer.writerow(['Index', 'Location', 'URL', 'Status Code'])
+        writer.writerow(['Index', 'Location', 'URL'])
 
         for i, location in enumerate(locations):
             search_url = f"https://www.google.com/search?q={location.replace(' ', '+')}"
             logger.info(f"Searching URL: {search_url}")
 
             try:
-                response = requests.get(search_url, headers=headers, timeout=10)
+                response = requests.get(search_url, headers=headers, timeout=100)
                 response.raise_for_status()  # Raise an exception for HTTP errors
 
                 soup = BeautifulSoup(response.text, 'html.parser')
@@ -91,9 +76,7 @@ def search_and_save_urls_requests(locations, output_file_path):
                     relative_url = first_element['href']
                     new_url = urljoin('https://www.google.com', relative_url)
                     logger.success(f"Found URL: {new_url}")
-
-                    status_code = check_url_status(new_url)
-                    writer.writerow([i + 1, location, new_url, status_code])
+                    writer.writerow([i + 1, location, new_url])
                 else:
                     logger.warning(f"No search result found for location {location}")
 
@@ -117,7 +100,7 @@ def main():
         locations = [row[0] for row in reader]  # Assuming locations are in the first column
 
     if args.method == 'selenium':
-        driver = configure_driver()
+        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
         search_and_save_urls_selenium(driver, locations, args.output_file)
         driver.quit()
     else:
