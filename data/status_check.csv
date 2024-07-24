@@ -6,3 +6,24 @@ http://olx.ba,200,Reachable
 https://vaktija.ba/,200,Reachable
 https://asdasda.com,,"Error: HTTPSConnectionPool(host='asdasda.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000002596E3E61B0>, 'Connection to asdasda.com timed out. (connect timeout=10)'))"
 https://vaktija.ba/,200,Reachable
+https://vaktija.ba/,200,Reachable
+https://www.westrapidstorage.com/,200,Reachable
+https://www.rentcafe.com/storage/ca/south-san-francisco/mateo-avenue-mini-storage-1168-san-mateo-avenue/default.aspx,403,Status Code 403
+https://www.facebook.com/ShieldsMtnStorage/,200,Reachable
+https://www.extraspace.com/storage/facilities/us/maine/berwick/7684/,403,Status Code 403
+https://mystoragezone.com/,200,Reachable
+https://www.eastlongmeadowstorage.com/,200,Reachable
+https://www.sentrypark.com/all-locations,200,Reachable
+https://www.park150.com/,200,Reachable
+https://www.hsw.com.au/,200,Reachable
+https://www.mtnministorage.com/,406,Status Code 406
+https://freedomstoragemanagement.com/locations/tx/lufkin/lufkin-climate-controlled-self-storage/,200,Reachable
+https://www.publicstorage.com/,200,Reachable
+https://www.lakeparkstorage.com/,200,Reachable
+https://www.safkeep.com/self-storage-locations/hawaii/kailua-kona-hi-storage-units/76-6201-walua-road/,200,Reachable
+https://www.extraspace.com/,403,Status Code 403
+https://www.devonselfstorage.com/,200,Reachable
+https://www.tmgindustrial.com/collections/storage,200,Reachable
+https://www.communitystorage.com/,200,Reachable
+https://www.theheightsselfstorage.com/,200,Reachable
+https://www.hwy63ministorage.com/,200,Reachable

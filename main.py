@@ -92,7 +92,7 @@ def search_and_save_urls_requests(locations, output_file_path):
             except requests.RequestException as e:
                 logger.error(f"An error occurred for the location {location}: {e}")
 
-def check_url_status(url, output_file_path): #NEW
+def check_url_status(url, output_file_path):
     """Checks the status code of the given URL and writes the result to a CSV file"""
     try:
         response = requests.get(url, timeout=10)
@@ -116,6 +116,20 @@ def check_url_status(url, output_file_path): #NEW
         writer = csv.writer(output_file)
         writer.writerow([url, status_code, status_message])
 
+def check_urls_from_output(output_file_path, status_output_path):
+    """Checks the status of URLs listed in the output CSV file and writes the results to another CSV file"""
+    if not os.path.isfile(output_file_path):
+        logger.error(f"The file {output_file_path} does not exist.")
+        return
+
+    with open(output_file_path, 'r', newline='', encoding='utf-8') as output_file:
+        reader = csv.reader(output_file)
+        next(reader)  # Skip header row
+
+        for row in reader:
+            url = row[2]  # Assuming URL is in the third column
+            check_url_status(url, status_output_path)
+
 def main():
     parser = argparse.ArgumentParser(description='Search for URLs using Google and save them to a file.')
     parser.add_argument('--method', choices=['selenium', 'requests'], default='requests',
@@ -126,8 +140,10 @@ def main():
                         help='Path to the CSV file where the search results will be saved.')
     parser.add_argument('--check_url', type=str, required=False,
                         help='URL to check status independently.')
-    parser.add_argument('--status_output', type=str, default='data/status_check.csv', #NEW
+    parser.add_argument('--status_output', type=str, default='data/status_check.csv',
                         help='Path to the CSV file where URL status results will be saved.')
+    parser.add_argument('--check_output_urls', action='store_true',
+                        help='Check the status of URLs listed in the output file.')
 
     args = parser.parse_args()
 
@@ -135,8 +151,14 @@ def main():
         check_url_status(args.check_url, args.status_output)
         return
 
+    if args.check_output_urls: 
+        if not args.output_file:
+            parser.error('--output_file is required to check URLs from the output file.') 
+        check_urls_from_output(args.output_file, args.status_output)
+        return
+
     if not args.input_file or not args.output_file:
-        parser.error('--input_file and --output_file are required unless --check_url is specified.')
+        parser.error('--input_file and --output_file are required unless --check_url or --check_output_urls is specified.')
 
     with open(args.input_file, 'r', newline='', encoding='utf-8') as input_file:
         reader = csv.reader(input_file)
