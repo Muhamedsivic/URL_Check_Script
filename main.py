@@ -11,13 +11,13 @@ from loguru import logger
 from urllib.parse import urljoin
 import os
 
-# Configure logging with rotation
-logger.add("logs/{time}.log", rotation="1 week")
+# Configure logging to a single file with rotation
+log_file_path = "logs/log_file.log"
+logger.add(log_file_path, rotation="1 week", retention="2 weeks", level="INFO")
 
 def configure_driver():
     """Configures and returns the Chrome WebDriver"""
     return webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-
 
 
 def search_and_save_urls_selenium(driver, locations, output_file_path):
@@ -126,7 +126,7 @@ def main():
                         help='Path to the CSV file where the search results will be saved.')
     parser.add_argument('--check_url', type=str, required=False,
                         help='URL to check status independently.')
-    parser.add_argument('--status_output', type=str, default='status_check.csv',
+    parser.add_argument('--status_output', type=str, default='data/status_check.csv',
                         help='Path to the CSV file where URL status results will be saved.')
 
     args = parser.parse_args()

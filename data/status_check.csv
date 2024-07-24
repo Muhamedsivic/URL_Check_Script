@@ -1,0 +1,8 @@
+http://instagram.com,200,Reachable
+http://facebook.com,200,Reachable
+http://youtube.com,200,Reachable
+http://instagram.com,200,Reachable
+http://olx.ba,200,Reachable
+https://vaktija.ba/,200,Reachable
+https://asdasda.com,,"Error: HTTPSConnectionPool(host='asdasda.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000002596E3E61B0>, 'Connection to asdasda.com timed out. (connect timeout=10)'))"
+https://vaktija.ba/,200,Reachable
