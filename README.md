@@ -1,40 +1,44 @@
-# URL Search Script
+# URL Search and Status Checker
 
-## Description
+This script allows you to search for URLs using Google and save them to a file. It also supports checking the status of a specific URL independently.
 
-This script searches Google for each location listed in an input CSV file and saves the URL of the first search result to an output CSV file. The script supports two search methods: `Selenium` and `requests`.
+## Features
 
-- **Selenium**: Uses Chrome WebDriver for browsing and collecting results.
-- **Requests**: Uses HTTP requests to search and collect results.
+- **Search for URLs**: Uses Google to search for locations and saves the first search result URL to a CSV file.
+- **Check URL Status**: Checks the status code of a specific URL and logs the result to a CSV file.
+- **Logging**: Logs all activities and errors to a single log file with rotation.
+
+## Requirements
+
+- Python 3.6 or higher
+- `requests==2.31.0`
+- `beautifulsoup4==4.12.2`
+- `selenium==4.21.0`
+- `webdriver-manager==4.7.0`
+- `loguru==0.7.0`
 
 ## Installation
 
-**Clone the repository:**
+1. Clone the repository:
 
-```bash
-git clone https://github.com/Muhamedsivic/URL_Check_Script
-cd URL_Check_Script
-```
+   ```sh
+   git clone <repository-url>
+   cd <repository-directory>
+   ```
 
-### Create a virtual environment (optional but recommended):
-
-```bash
-   python -m venv env
-source env/bin/activate  # On Windows: env\Scripts\activate
-```
-
-### Install dependencies:
-
-```bash
-  pip install -r requirements.txt
-```
+2. Install the dependencies:
+   ```sh
+   pip install -r requirements.txt
+   ```
 
 ## Usage
 
-Run the script with the following command:
+### Search for URLs
 
-```bash
-python your_script.py --method [selenium|requests] --input_file PATH_TO_INPUT_FILE --output_file PATH_TO_OUTPUT_FILE
+To search for URLs and save them to a file, use:
+
+```sh
+python main.py --method <method> --input_file <input_csv> --output_file <output_csv>
 ```
 
 ## Arguments:
