@@ -108,12 +108,12 @@ def check_url_status(url, output_file_path):
             logger.warning(f"URL returned status code {status_code}: {url}")
 
     except requests.RequestException as e:
-        status_code = None
+        status_code = "Error"
         status_message = f"Error: {e}"
         logger.error(f"An error occurred while checking URL {url}: {e}")
 
     with open(output_file_path, 'a', newline='', encoding='utf-8') as output_file:
-        writer = csv.writer(output_file)
+        writer = csv.writer(output_file, delimiter=' ')
         writer.writerow([url, status_code, status_message])
 
 def check_urls_from_output(output_file_path, status_output_path):
@@ -126,9 +126,13 @@ def check_urls_from_output(output_file_path, status_output_path):
         reader = csv.reader(output_file)
         next(reader)  # Skip header row
 
-        for row in reader:
-            url = row[2]  # Assuming URL is in the third column
-            check_url_status(url, status_output_path)
+        with open(status_output_path, 'w', newline='', encoding='utf-8') as status_output_file:
+            writer = csv.writer(status_output_file, delimiter=' ')
+            writer.writerow(['URL', 'Status Code', 'Status'])  # Write header row
+
+            for row in reader:
+                url = row[2]  # Assuming URL is in the third column
+                check_url_status(url, status_output_path)
 
 def main():
     parser = argparse.ArgumentParser(description='Search for URLs using Google and save them to a file.')
@@ -151,9 +155,9 @@ def main():
         check_url_status(args.check_url, args.status_output)
         return
 
-    if args.check_output_urls: 
+    if args.check_output_urls:
         if not args.output_file:
-            parser.error('--output_file is required to check URLs from the output file.') 
+            parser.error('--output_file is required to check URLs from the output file.')
         check_urls_from_output(args.output_file, args.status_output)
         return
 

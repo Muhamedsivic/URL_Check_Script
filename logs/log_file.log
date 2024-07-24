@@ -70,3 +70,143 @@
 2024-07-24 14:00:14.421 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.communitystorage.com/
 2024-07-24 14:00:15.142 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.theheightsselfstorage.com/
 2024-07-24 14:00:15.932 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.hwy63ministorage.com/
+2024-07-24 14:10:44.205 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.westrapidstorage.com/
+2024-07-24 14:10:44.357 | WARNING  | __main__:check_url_status:108 - URL returned status code 403: https://www.rentcafe.com/storage/ca/south-san-francisco/mateo-avenue-mini-storage-1168-san-mateo-avenue/default.aspx
+2024-07-24 14:10:44.701 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.facebook.com/ShieldsMtnStorage/
+2024-07-24 14:10:45.043 | WARNING  | __main__:check_url_status:108 - URL returned status code 403: https://www.extraspace.com/storage/facilities/us/maine/berwick/7684/
+2024-07-24 14:10:45.804 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://mystoragezone.com/
+2024-07-24 14:10:46.563 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.eastlongmeadowstorage.com/
+2024-07-24 14:10:47.472 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.sentrypark.com/all-locations
+2024-07-24 14:10:47.896 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.park150.com/
+2024-07-24 14:10:49.082 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.hsw.com.au/
+2024-07-24 14:10:50.028 | WARNING  | __main__:check_url_status:108 - URL returned status code 406: https://www.mtnministorage.com/
+2024-07-24 14:10:50.771 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://freedomstoragemanagement.com/locations/tx/lufkin/lufkin-climate-controlled-self-storage/
+2024-07-24 14:10:52.216 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.publicstorage.com/
+2024-07-24 14:10:53.507 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.lakeparkstorage.com/
+2024-07-24 14:10:54.243 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.safkeep.com/self-storage-locations/hawaii/kailua-kona-hi-storage-units/76-6201-walua-road/
+2024-07-24 14:10:54.594 | WARNING  | __main__:check_url_status:108 - URL returned status code 403: https://www.extraspace.com/
+2024-07-24 14:10:56.125 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.devonselfstorage.com/
+2024-07-24 14:10:57.272 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.tmgindustrial.com/collections/storage
+2024-07-24 14:10:58.264 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.communitystorage.com/
+2024-07-24 14:10:58.995 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.theheightsselfstorage.com/
+2024-07-24 14:10:59.822 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.hwy63ministorage.com/
+2024-07-24 14:12:17.055 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.westrapidstorage.com/
+2024-07-24 14:12:17.132 | WARNING  | __main__:check_url_status:108 - URL returned status code 403: https://www.rentcafe.com/storage/ca/south-san-francisco/mateo-avenue-mini-storage-1168-san-mateo-avenue/default.aspx
+2024-07-24 14:12:17.487 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.facebook.com/ShieldsMtnStorage/
+2024-07-24 14:12:18.044 | WARNING  | __main__:check_url_status:108 - URL returned status code 403: https://www.extraspace.com/storage/facilities/us/maine/berwick/7684/
+2024-07-24 14:12:18.733 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://mystoragezone.com/
+2024-07-24 14:12:19.456 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.eastlongmeadowstorage.com/
+2024-07-24 14:12:20.759 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.sentrypark.com/all-locations
+2024-07-24 14:12:21.057 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.park150.com/
+2024-07-24 14:12:21.675 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.hsw.com.au/
+2024-07-24 14:12:23.364 | WARNING  | __main__:check_url_status:108 - URL returned status code 406: https://www.mtnministorage.com/
+2024-07-24 14:12:24.090 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://freedomstoragemanagement.com/locations/tx/lufkin/lufkin-climate-controlled-self-storage/
+2024-07-24 14:12:25.600 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.publicstorage.com/
+2024-07-24 14:12:26.341 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.lakeparkstorage.com/
+2024-07-24 14:12:27.063 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.safkeep.com/self-storage-locations/hawaii/kailua-kona-hi-storage-units/76-6201-walua-road/
+2024-07-24 14:12:27.462 | WARNING  | __main__:check_url_status:108 - URL returned status code 403: https://www.extraspace.com/
+2024-07-24 14:12:28.971 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.devonselfstorage.com/
+2024-07-24 14:12:29.148 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.tmgindustrial.com/collections/storage
+2024-07-24 14:12:30.098 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.communitystorage.com/
+2024-07-24 14:12:30.793 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.theheightsselfstorage.com/
+2024-07-24 14:12:31.573 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.hwy63ministorage.com/
+2024-07-24 14:13:04.924 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.westrapidstorage.com/
+2024-07-24 14:13:05.052 | WARNING  | __main__:check_url_status:108 - URL returned status code 403: https://www.rentcafe.com/storage/ca/south-san-francisco/mateo-avenue-mini-storage-1168-san-mateo-avenue/default.aspx
+2024-07-24 14:13:05.378 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.facebook.com/ShieldsMtnStorage/
+2024-07-24 14:13:05.674 | WARNING  | __main__:check_url_status:108 - URL returned status code 403: https://www.extraspace.com/storage/facilities/us/maine/berwick/7684/
+2024-07-24 14:13:06.383 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://mystoragezone.com/
+2024-07-24 14:13:07.033 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.eastlongmeadowstorage.com/
+2024-07-24 14:13:07.798 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.sentrypark.com/all-locations
+2024-07-24 14:13:08.123 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.park150.com/
+2024-07-24 14:13:08.879 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.hsw.com.au/
+2024-07-24 14:13:09.795 | WARNING  | __main__:check_url_status:108 - URL returned status code 406: https://www.mtnministorage.com/
+2024-07-24 14:13:10.522 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://freedomstoragemanagement.com/locations/tx/lufkin/lufkin-climate-controlled-self-storage/
+2024-07-24 14:13:11.903 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.publicstorage.com/
+2024-07-24 14:13:12.533 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.lakeparkstorage.com/
+2024-07-24 14:13:13.257 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.safkeep.com/self-storage-locations/hawaii/kailua-kona-hi-storage-units/76-6201-walua-road/
+2024-07-24 14:13:13.584 | WARNING  | __main__:check_url_status:108 - URL returned status code 403: https://www.extraspace.com/
+2024-07-24 14:13:15.533 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.devonselfstorage.com/
+2024-07-24 14:13:15.720 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.tmgindustrial.com/collections/storage
+2024-07-24 14:13:16.470 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.communitystorage.com/
+2024-07-24 14:13:17.115 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.theheightsselfstorage.com/
+2024-07-24 14:13:17.750 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.hwy63ministorage.com/
+2024-07-24 14:14:07.575 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.westrapidstorage.com/
+2024-07-24 14:14:07.697 | WARNING  | __main__:check_url_status:106 - URL returned status code 403: https://www.rentcafe.com/storage/ca/south-san-francisco/mateo-avenue-mini-storage-1168-san-mateo-avenue/default.aspx
+2024-07-24 14:14:08.065 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.facebook.com/ShieldsMtnStorage/
+2024-07-24 14:14:08.423 | WARNING  | __main__:check_url_status:106 - URL returned status code 403: https://www.extraspace.com/storage/facilities/us/maine/berwick/7684/
+2024-07-24 14:14:09.110 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://mystoragezone.com/
+2024-07-24 14:14:09.908 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.eastlongmeadowstorage.com/
+2024-07-24 14:14:10.788 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.sentrypark.com/all-locations
+2024-07-24 14:14:11.086 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.park150.com/
+2024-07-24 14:14:11.683 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.hsw.com.au/
+2024-07-24 14:14:12.463 | WARNING  | __main__:check_url_status:106 - URL returned status code 406: https://www.mtnministorage.com/
+2024-07-24 14:14:13.199 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://freedomstoragemanagement.com/locations/tx/lufkin/lufkin-climate-controlled-self-storage/
+2024-07-24 14:14:14.473 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.publicstorage.com/
+2024-07-24 14:14:15.193 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.lakeparkstorage.com/
+2024-07-24 14:14:15.948 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.safkeep.com/self-storage-locations/hawaii/kailua-kona-hi-storage-units/76-6201-walua-road/
+2024-07-24 14:14:16.376 | WARNING  | __main__:check_url_status:106 - URL returned status code 403: https://www.extraspace.com/
+2024-07-24 14:14:18.130 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.devonselfstorage.com/
+2024-07-24 14:14:18.372 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.tmgindustrial.com/collections/storage
+2024-07-24 14:14:19.174 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.communitystorage.com/
+2024-07-24 14:14:19.851 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.theheightsselfstorage.com/
+2024-07-24 14:14:20.611 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.hwy63ministorage.com/
+2024-07-24 14:15:12.272 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.westrapidstorage.com/
+2024-07-24 14:15:12.378 | WARNING  | __main__:check_url_status:108 - URL returned status code 403: https://www.rentcafe.com/storage/ca/south-san-francisco/mateo-avenue-mini-storage-1168-san-mateo-avenue/default.aspx
+2024-07-24 14:15:12.698 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.facebook.com/ShieldsMtnStorage/
+2024-07-24 14:15:13.060 | WARNING  | __main__:check_url_status:108 - URL returned status code 403: https://www.extraspace.com/storage/facilities/us/maine/berwick/7684/
+2024-07-24 14:15:13.750 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://mystoragezone.com/
+2024-07-24 14:15:14.552 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.eastlongmeadowstorage.com/
+2024-07-24 14:15:15.468 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.sentrypark.com/all-locations
+2024-07-24 14:15:15.788 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.park150.com/
+2024-07-24 14:15:16.399 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.hsw.com.au/
+2024-07-24 14:15:17.396 | WARNING  | __main__:check_url_status:108 - URL returned status code 406: https://www.mtnministorage.com/
+2024-07-24 14:15:18.131 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://freedomstoragemanagement.com/locations/tx/lufkin/lufkin-climate-controlled-self-storage/
+2024-07-24 14:15:19.509 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.publicstorage.com/
+2024-07-24 14:15:20.203 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.lakeparkstorage.com/
+2024-07-24 14:15:20.935 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.safkeep.com/self-storage-locations/hawaii/kailua-kona-hi-storage-units/76-6201-walua-road/
+2024-07-24 14:15:21.251 | WARNING  | __main__:check_url_status:108 - URL returned status code 403: https://www.extraspace.com/
+2024-07-24 14:15:26.798 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.devonselfstorage.com/
+2024-07-24 14:15:26.998 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.tmgindustrial.com/collections/storage
+2024-07-24 14:15:27.963 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.communitystorage.com/
+2024-07-24 14:15:28.690 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.theheightsselfstorage.com/
+2024-07-24 14:15:29.566 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.hwy63ministorage.com/
+2024-07-24 14:18:27.113 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.westrapidstorage.com/
+2024-07-24 14:18:27.263 | WARNING  | __main__:check_url_status:106 - URL returned status code 403: https://www.rentcafe.com/storage/ca/south-san-francisco/mateo-avenue-mini-storage-1168-san-mateo-avenue/default.aspx
+2024-07-24 14:18:27.599 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.facebook.com/ShieldsMtnStorage/
+2024-07-24 14:18:28.120 | WARNING  | __main__:check_url_status:106 - URL returned status code 403: https://www.extraspace.com/storage/facilities/us/maine/berwick/7684/
+2024-07-24 14:18:28.820 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://mystoragezone.com/
+2024-07-24 14:18:29.559 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.eastlongmeadowstorage.com/
+2024-07-24 14:18:30.365 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.sentrypark.com/all-locations
+2024-07-24 14:18:30.669 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.park150.com/
+2024-07-24 14:18:31.679 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.hsw.com.au/
+2024-07-24 14:18:32.936 | WARNING  | __main__:check_url_status:106 - URL returned status code 406: https://www.mtnministorage.com/
+2024-07-24 14:18:33.660 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://freedomstoragemanagement.com/locations/tx/lufkin/lufkin-climate-controlled-self-storage/
+2024-07-24 14:18:35.032 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.publicstorage.com/
+2024-07-24 14:18:35.773 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.lakeparkstorage.com/
+2024-07-24 14:18:36.488 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.safkeep.com/self-storage-locations/hawaii/kailua-kona-hi-storage-units/76-6201-walua-road/
+2024-07-24 14:18:36.911 | WARNING  | __main__:check_url_status:106 - URL returned status code 403: https://www.extraspace.com/
+2024-07-24 14:18:38.504 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.devonselfstorage.com/
+2024-07-24 14:18:38.680 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.tmgindustrial.com/collections/storage
+2024-07-24 14:18:39.697 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.communitystorage.com/
+2024-07-24 14:18:40.458 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.theheightsselfstorage.com/
+2024-07-24 14:18:41.186 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.hwy63ministorage.com/
+2024-07-24 14:23:35.723 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.westrapidstorage.com/
+2024-07-24 14:23:35.854 | WARNING  | __main__:check_url_status:108 - URL returned status code 403: https://www.rentcafe.com/storage/ca/south-san-francisco/mateo-avenue-mini-storage-1168-san-mateo-avenue/default.aspx
+2024-07-24 14:23:36.268 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.facebook.com/ShieldsMtnStorage/
+2024-07-24 14:23:36.631 | WARNING  | __main__:check_url_status:108 - URL returned status code 403: https://www.extraspace.com/storage/facilities/us/maine/berwick/7684/
+2024-07-24 14:23:37.401 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://mystoragezone.com/
+2024-07-24 14:23:38.163 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.eastlongmeadowstorage.com/
+2024-07-24 14:23:39.057 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.sentrypark.com/all-locations
+2024-07-24 14:23:39.448 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.park150.com/
+2024-07-24 14:23:40.560 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.hsw.com.au/
+2024-07-24 14:23:41.322 | WARNING  | __main__:check_url_status:108 - URL returned status code 406: https://www.mtnministorage.com/
+2024-07-24 14:23:42.041 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://freedomstoragemanagement.com/locations/tx/lufkin/lufkin-climate-controlled-self-storage/
+2024-07-24 14:23:43.318 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.publicstorage.com/
+2024-07-24 14:23:44.062 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.lakeparkstorage.com/
+2024-07-24 14:23:44.785 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.safkeep.com/self-storage-locations/hawaii/kailua-kona-hi-storage-units/76-6201-walua-road/
+2024-07-24 14:23:45.119 | WARNING  | __main__:check_url_status:108 - URL returned status code 403: https://www.extraspace.com/
+2024-07-24 14:23:46.744 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.devonselfstorage.com/
+2024-07-24 14:23:47.028 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.tmgindustrial.com/collections/storage
+2024-07-24 14:23:47.838 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.communitystorage.com/
+2024-07-24 14:23:48.723 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.theheightsselfstorage.com/
+2024-07-24 14:23:49.480 | SUCCESS  | __main__:check_url_status:102 - URL is reachable: https://www.hwy63ministorage.com/
