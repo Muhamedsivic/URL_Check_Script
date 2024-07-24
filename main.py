@@ -9,24 +9,20 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from loguru import logger
 from urllib.parse import urljoin
+import os
+
+# Configure logging with rotation
+logger.add("logs/{time}.log", rotation="1 week")
 
 def configure_driver():
     """Configures and returns the Chrome WebDriver"""
     return webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
-def check_url_status(url):
-    """Checks the status of a URL and returns the status code"""
-    try:
-        response = requests.head(url, timeout=5)
-        return response.status_code
-    except requests.RequestException as e:
-        logger.error(f"URL check failed: {e}")
-        return None
+
 
 def search_and_save_urls_selenium(driver, locations, output_file_path):
     """
-    Searches Google for each location in the list, finds the URL of the first search result, 
-    checks its status, and saves them to a CSV file using Selenium.
+    Searches Google for each location in the list, finds the URL of the first search result, and saves them to a CSV file using Selenium.
     
     Args:
     - driver: WebDriver object for browser management
@@ -35,7 +31,7 @@ def search_and_save_urls_selenium(driver, locations, output_file_path):
     """
     with open(output_file_path, 'w', newline='', encoding='utf-8') as output_file:
         writer = csv.writer(output_file)
-        writer.writerow(['Index', 'Location', 'URL', 'Status Code'])
+        writer.writerow(['Index', 'Location', 'URL'])
 
         for i, location in enumerate(locations):
             search_url = f"https://www.google.com/search?q={location.replace(' ', '+')}"
@@ -52,8 +48,7 @@ def search_and_save_urls_selenium(driver, locations, output_file_path):
                 new_url = first_element.get_attribute('href')
                 logger.success(f"Found URL: {new_url}")
 
-                status_code = check_url_status(new_url)
-                writer.writerow([i + 1, location, new_url, status_code])
+                writer.writerow([i + 1, location, new_url])
 
             except Exception as e:
                 logger.error(f"An error occurred for the location {location}: {e}")
@@ -61,8 +56,7 @@ def search_and_save_urls_selenium(driver, locations, output_file_path):
 
 def search_and_save_urls_requests(locations, output_file_path):
     """
-    Searches Google for each location in the list, finds the URL of the first search result, 
-    checks its status, and saves them to a CSV file using requests.
+    Searches Google for each location in the list, finds the URL of the first search result, and saves them to a CSV file using requests.
     
     Args:
     - locations: List of locations to be searched
@@ -74,7 +68,7 @@ def search_and_save_urls_requests(locations, output_file_path):
 
     with open(output_file_path, 'w', newline='', encoding='utf-8') as output_file:
         writer = csv.writer(output_file)
-        writer.writerow(['Index', 'Location', 'URL', 'Status Code'])
+        writer.writerow(['Index', 'Location', 'URL'])
 
         for i, location in enumerate(locations):
             search_url = f"https://www.google.com/search?q={location.replace(' ', '+')}"
@@ -91,25 +85,58 @@ def search_and_save_urls_requests(locations, output_file_path):
                     relative_url = first_element['href']
                     new_url = urljoin('https://www.google.com', relative_url)
                     logger.success(f"Found URL: {new_url}")
-
-                    status_code = check_url_status(new_url)
-                    writer.writerow([i + 1, location, new_url, status_code])
+                    writer.writerow([i + 1, location, new_url])
                 else:
                     logger.warning(f"No search result found for location {location}")
 
-            except Exception as e:
+            except requests.RequestException as e:
                 logger.error(f"An error occurred for the location {location}: {e}")
 
+def check_url_status(url, output_file_path):
+    """Checks the status code of the given URL and writes the result to a CSV file"""
+    try:
+        response = requests.get(url, timeout=10)
+        status_code = response.status_code
+        if status_code == 200:
+            status_message = "Reachable"
+            logger.success(f"URL is reachable: {url}")
+        elif status_code == 404:
+            status_message = "Not Found (404)"
+            logger.error(f"URL not found (404): {url}")
+        else:
+            status_message = f"Status Code {status_code}"
+            logger.warning(f"URL returned status code {status_code}: {url}")
+
+    except requests.RequestException as e:
+        status_code = None
+        status_message = f"Error: {e}"
+        logger.error(f"An error occurred while checking URL {url}: {e}")
+
+    with open(output_file_path, 'a', newline='', encoding='utf-8') as output_file:
+        writer = csv.writer(output_file)
+        writer.writerow([url, status_code, status_message])
 
 def main():
     parser = argparse.ArgumentParser(description='Search for URLs using Google and save them to a file.')
     parser.add_argument('--method', choices=['selenium', 'requests'], default='requests',
                         help='Method to use for searching: "selenium" or "requests" (default: "requests")')
-    parser.add_argument('--input_file', type=str, required=True,
+    parser.add_argument('--input_file', type=str, required=False,
                         help='Path to the CSV file containing the list of locations to be searched.')
-    parser.add_argument('--output_file', type=str, required=True,
+    parser.add_argument('--output_file', type=str, required=False,
                         help='Path to the CSV file where the search results will be saved.')
+    parser.add_argument('--check_url', type=str, required=False,
+                        help='URL to check status independently.')
+    parser.add_argument('--status_output', type=str, default='status_check.csv',
+                        help='Path to the CSV file where URL status results will be saved.')
+
     args = parser.parse_args()
+
+    if args.check_url:
+        check_url_status(args.check_url, args.status_output)
+        return
+
+    if not args.input_file or not args.output_file:
+        parser.error('--input_file and --output_file are required unless --check_url is specified.')
 
     with open(args.input_file, 'r', newline='', encoding='utf-8') as input_file:
         reader = csv.reader(input_file)
