@@ -92,7 +92,7 @@ def search_and_save_urls_requests(locations, output_file_path):
             except requests.RequestException as e:
                 logger.error(f"An error occurred for the location {location}: {e}")
 
-def check_url_status(url, output_file_path):
+def check_url_status(url, output_file_path): #NEW
     """Checks the status code of the given URL and writes the result to a CSV file"""
     try:
         response = requests.get(url, timeout=10)
@@ -126,7 +126,7 @@ def main():
                         help='Path to the CSV file where the search results will be saved.')
     parser.add_argument('--check_url', type=str, required=False,
                         help='URL to check status independently.')
-    parser.add_argument('--status_output', type=str, default='data/status_check.csv',
+    parser.add_argument('--status_output', type=str, default='data/status_check.csv', #NEW
                         help='Path to the CSV file where URL status results will be saved.')
 
     args = parser.parse_args()
