@@ -1,18 +1,17 @@
 import argparse
 import csv
+import os
 import time
+from urllib.parse import urljoin
 import requests
 import selenium
 from bs4 import BeautifulSoup
+from loguru import logger
 from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
-from loguru import logger
-from urllib.parse import urljoin
-import os
-from selenium.common.exceptions import NoSuchElementException, TimeoutException, WebDriverException
-
 
 # Configure logging to a single file with rotation
 log_file_path = "logs/log_file.log"
@@ -209,13 +208,13 @@ def main():
 
     if args.check_url:
         check_url_status(args.check_url, args.status_output)
-        return
+        return # Stops the execution of the function if only a URL for status checking is provided
 
     if args.check_output_urls:
         if not args.output_file:
             parser.error('--output_file is required to check URLs from the output file.')
         check_urls_from_output(args.output_file, args.status_output)
-        return
+        return # Stops the execution of the function after checking the status of URLs from the output file
 
     if not args.input_file or not args.output_file:
         parser.error(
