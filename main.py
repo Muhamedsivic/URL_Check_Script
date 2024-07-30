@@ -175,7 +175,7 @@ def check_urls_from_output(output_file_path, status_output_path):
     """Checks the status of URLs listed in the output CSV file and writes the results to another CSV file"""
     if not os.path.isfile(output_file_path):
         logger.error(f"The file {output_file_path} does not exist.")
-        return #TODO return sta rade
+        return # Exits the function if the specified file does not exist
 
     with open(output_file_path, 'r', newline='', encoding='utf-8') as output_file:
         reader = csv.reader(output_file)
