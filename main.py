@@ -2,6 +2,7 @@ import argparse
 import csv
 import time
 import requests
+import selenium
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -10,6 +11,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 from loguru import logger
 from urllib.parse import urljoin
 import os
+from selenium.common.exceptions import NoSuchElementException, TimeoutException, WebDriverException
+
 
 # Configure logging to a single file with rotation
 log_file_path = "logs/log_file.log"
@@ -23,7 +26,7 @@ def configure_driver():
 def search_and_save_urls_selenium(driver, locations, output_file_path):
     """
     Searches Google for each location in the list, finds the URL of the first search result, and saves them to a CSV file using Selenium.
-    
+
     Args:
     - driver: WebDriver object for browser management
     - locations: List of locations to be searched
@@ -38,19 +41,27 @@ def search_and_save_urls_selenium(driver, locations, output_file_path):
             logger.info(f"Searching URL: {search_url}")
             time.sleep(0.5)  # Sleep to avoid hitting the server too quickly
 
-            driver.get(search_url)
-            logger.info(f"Page loaded: {driver.current_url}")
-            time.sleep(3)  # Allow time for the page to fully load
+            try:
+                driver.get(search_url)
+                logger.info(f"Page loaded: {driver.current_url}")
+                time.sleep(3)  # Allow time for the page to fully load
+
+                first_element = driver.find_element(By.CSS_SELECTOR, '.yuRUbf a')
+                logger.info("First search result found")
+                new_url = first_element.get_attribute('href')
+                logger.success(f"Found URL: {new_url}")
+
+                writer.writerow([i + 1, location, new_url])
 
 
-            first_element = driver.find_element(By.CSS_SELECTOR, '.yuRUbf a')
-            logger.info("First search result found")
-            new_url = first_element.get_attribute('href')
-            logger.success(f"Found URL: {new_url}")
-
-            writer.writerow([i + 1, location, new_url])
-
-
+            except selenium.common.exceptions.NoSuchElementException as e:
+                logger.error(f"Element not found while searching for location {location}: {e}")
+            except selenium.common.exceptions.TimeoutException as e:
+                logger.error(f"Timeout occurred while searching for location {location}: {e}")
+            except selenium.common.exceptions.WebDriverException as e:
+                logger.error(f"WebDriver error occurred while searching for location {location}: {e}")
+            except Exception as e:
+                logger.error(f"Unexpected error occurred while searching for location {location}: {e}")
 
 
 def search_and_save_urls_requests(locations, output_file_path):
@@ -73,39 +84,89 @@ def search_and_save_urls_requests(locations, output_file_path):
             search_url = f"https://www.google.com/search?q={location.replace(' ', '+')}"
             logger.info(f"Searching URL: {search_url}")
 
+            try:
+                response = requests.get(search_url, headers=headers, timeout=10)
+                response.raise_for_status()  # Raise an exception for HTTP errors
 
-            response = requests.get(search_url, headers=headers, timeout=10)
-            response.raise_for_status()  # Raise an exception for HTTP errors
+                soup = BeautifulSoup(response.text, 'html.parser')
+                first_element = soup.select_one('.yuRUbf a')
 
-            soup = BeautifulSoup(response.text, 'html.parser')
-            first_element = soup.select_one('.yuRUbf a')
+                if first_element:
+                    relative_url = first_element['href']
+                    new_url = urljoin('https://www.google.com', relative_url)
+                    logger.success(f"Found URL: {new_url}")
+                    writer.writerow([i + 1, location, new_url])
+                else:
+                    logger.warning(f"No search result found for location {location}")
 
-            if first_element:
-                relative_url = first_element['href']
-                new_url = urljoin('https://www.google.com', relative_url)
-                logger.success(f"Found URL: {new_url}")
-                writer.writerow([i + 1, location, new_url])
-            else:
-                logger.warning(f"No search result found for location {location}")
-
+            except requests.HTTPError as http_err:
+                if http_err.response.status_code == 400:
+                    logger.error(f"Bad Request (400) for location {location}: {http_err}")
+                elif http_err.response.status_code == 401:
+                    logger.error(f"Unauthorized (401) for location {location}: {http_err}")
+                elif http_err.response.status_code == 403:
+                    logger.error(f"Forbidden (403) for location {location}: {http_err}")
+                elif http_err.response.status_code == 404:
+                    logger.error(f"Not Found (404) for location {location}: {http_err}")
+                elif http_err.response.status_code == 500:
+                    logger.error(f"Internal Server Error (500) for location {location}: {http_err}")
+                elif http_err.response.status_code == 503:
+                    logger.error(f"Service Unavailable (503) for location {location}: {http_err}")
+                else:
+                    logger.error(f"HTTP error occurred for location {location}: {http_err}")
+            except requests.RequestException as req_err:
+                logger.error(f"Request error occurred for location {location}: {req_err}")
+            except Exception as e:
+                logger.error(f"Unexpected error occurred for location {location}: {e}")
 
 
 def check_url_status(url, output_file_path):
     """Checks the status code of the given URL and writes the result to a CSV file"""
 
-    response = requests.get(url, timeout=10)
-    status_code = response.status_code
-    if status_code == 200:
-        status_message = "Reachable"
-        logger.success(f"URL is reachable: {url}")
-    elif status_code == 404:
-        status_message = "Not Found (404)"
-        logger.error(f"URL not found (404): {url}")
-    else:
-        status_message = f"Status Code {status_code}"
-        logger.warning(f"URL returned status code {status_code}: {url}")
+    try:
+        response = requests.get(url, timeout=10)
+        status_code = response.status_code
+        if status_code == 200:
+            status_message = "Reachable"
+            logger.success(f"URL is reachable: {url}")
+        elif status_code == 404:
+            status_message = "Not Found (404)"
+            logger.error(f"URL not found (404): {url}")
+        elif status_code == 500:
+            status_message = "Internal Server Error (500)"
+            logger.error(f"Internal Server Error (500): {url}")
+        elif status_code == 503:
+            status_message = "Service Unavailable (503)"
+            logger.error(f"Service Unavailable (503): {url}")
+        else:
+            status_message = f"Status Code {status_code}"
+            logger.warning(f"URL returned status code {status_code}: {url}")
 
-
+    except requests.HTTPError as http_err:
+        status_code = "Error"
+        if http_err.response.status_code == 400:
+            status_message = "Bad Request (400)"
+        elif http_err.response.status_code == 401:
+            status_message = "Unauthorized (401)"
+        elif http_err.response.status_code == 403:
+            status_message = "Forbidden (403)"
+        elif http_err.response.status_code == 404:
+            status_message = "Not Found (404)"
+        elif http_err.response.status_code == 500:
+            status_message = "Internal Server Error (500)"
+        elif http_err.response.status_code == 503:
+            status_message = "Service Unavailable (503)"
+        else:
+            status_message = f"HTTP error: {http_err}"
+        logger.error(f"HTTP error occurred while checking URL {url}: {http_err}")
+    except requests.RequestException as req_err:
+        status_code = "Error"
+        status_message = f"Request error: {req_err}"
+        logger.error(f"Request error occurred while checking URL {url}: {req_err}")
+    except Exception as e:
+        status_code = "Error"
+        status_message = f"Unexpected error: {e}"
+        logger.error(f"Unexpected error occurred while checking URL {url}: {e}")
 
     with open(output_file_path, 'a', newline='', encoding='utf-8') as output_file:
         writer = csv.writer(output_file, delimiter=' ')
@@ -115,7 +176,7 @@ def check_urls_from_output(output_file_path, status_output_path):
     """Checks the status of URLs listed in the output CSV file and writes the results to another CSV file"""
     if not os.path.isfile(output_file_path):
         logger.error(f"The file {output_file_path} does not exist.")
-        return
+        return #TODO return sta rade
 
     with open(output_file_path, 'r', newline='', encoding='utf-8') as output_file:
         reader = csv.reader(output_file)
@@ -157,7 +218,8 @@ def main():
         return
 
     if not args.input_file or not args.output_file:
-        parser.error('--input_file and --output_file are required unless --check_url or --check_output_urls is specified.')
+        parser.error(
+            '--input_file and --output_file are required unless --check_url or --check_output_urls is specified.')
 
     with open(args.input_file, 'r', newline='', encoding='utf-8') as input_file:
         reader = csv.reader(input_file)
