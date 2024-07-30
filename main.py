@@ -4,11 +4,10 @@ import os
 import time
 from urllib.parse import urljoin
 import requests
-import selenium
 from bs4 import BeautifulSoup
 from loguru import logger
 from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException, TimeoutException, WebDriverException
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
@@ -16,6 +15,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 # Configure logging to a single file with rotation
 log_file_path = "logs/log_file.log"
 logger.add(log_file_path, rotation="1 week", retention="2 weeks", level="INFO")
+
 
 def configure_driver():
     """Configures and returns the Chrome WebDriver"""
@@ -52,12 +52,11 @@ def search_and_save_urls_selenium(driver, locations, output_file_path):
 
                 writer.writerow([i + 1, location, new_url])
 
-
-            except selenium.common.exceptions.NoSuchElementException as e:
+            except NoSuchElementException as e:
                 logger.error(f"Element not found while searching for location {location}: {e}")
-            except selenium.common.exceptions.TimeoutException as e:
+            except TimeoutException as e:
                 logger.error(f"Timeout occurred while searching for location {location}: {e}")
-            except selenium.common.exceptions.WebDriverException as e:
+            except WebDriverException as e:
                 logger.error(f"WebDriver error occurred while searching for location {location}: {e}")
             except Exception as e:
                 logger.error(f"Unexpected error occurred while searching for location {location}: {e}")
@@ -66,7 +65,7 @@ def search_and_save_urls_selenium(driver, locations, output_file_path):
 def search_and_save_urls_requests(locations, output_file_path):
     """
     Searches Google for each location in the list, finds the URL of the first search result, and saves them to a CSV file using requests.
-    
+
     Args:
     - locations: List of locations to be searched
     - output_file_path: Path to the output file where URLs are stored
@@ -99,20 +98,16 @@ def search_and_save_urls_requests(locations, output_file_path):
                     logger.warning(f"No search result found for location {location}")
 
             except requests.HTTPError as http_err:
-                if http_err.response.status_code == 400:
-                    logger.error(f"Bad Request (400) for location {location}: {http_err}")
-                elif http_err.response.status_code == 401:
-                    logger.error(f"Unauthorized (401) for location {location}: {http_err}")
-                elif http_err.response.status_code == 403:
-                    logger.error(f"Forbidden (403) for location {location}: {http_err}")
-                elif http_err.response.status_code == 404:
-                    logger.error(f"Not Found (404) for location {location}: {http_err}")
-                elif http_err.response.status_code == 500:
-                    logger.error(f"Internal Server Error (500) for location {location}: {http_err}")
-                elif http_err.response.status_code == 503:
-                    logger.error(f"Service Unavailable (503) for location {location}: {http_err}")
-                else:
-                    logger.error(f"HTTP error occurred for location {location}: {http_err}")
+                error_status_messages = {
+                    400: "Bad Request (400)",
+                    401: "Unauthorized (401)",
+                    403: "Forbidden (403)",
+                    404: "Not Found (404)",
+                    500: "Internal Server Error (500)",
+                    503: "Service Unavailable (503)",
+                }
+                status_message = error_status_messages.get(http_err.response.status_code, f"HTTP error: {http_err}")
+                logger.error(f"HTTP error occurred for location {location}: {status_message}")
             except requests.RequestException as req_err:
                 logger.error(f"Request error occurred for location {location}: {req_err}")
             except Exception as e:
@@ -122,46 +117,44 @@ def search_and_save_urls_requests(locations, output_file_path):
 def check_url_status(url, output_file_path):
     """Checks the status code of the given URL and writes the result to a CSV file"""
 
+    status_messages = {
+        200: "Reachable",
+        404: "Not Found (404)",
+        500: "Internal Server Error (500)",
+        503: "Service Unavailable (503)",
+    }
+
     try:
         response = requests.get(url, timeout=10)
         status_code = response.status_code
+        status_message = status_messages.get(status_code, f"Status Code {status_code}")
+
         if status_code == 200:
-            status_message = "Reachable"
             logger.success(f"URL is reachable: {url}")
-        elif status_code == 404:
-            status_message = "Not Found (404)"
-            logger.error(f"URL not found (404): {url}")
-        elif status_code == 500:
-            status_message = "Internal Server Error (500)"
-            logger.error(f"Internal Server Error (500): {url}")
-        elif status_code == 503:
-            status_message = "Service Unavailable (503)"
-            logger.error(f"Service Unavailable (503): {url}")
+        elif status_code in [404, 500, 503]:
+            logger.error(f"URL returned status code {status_code}: {url}")
         else:
-            status_message = f"Status Code {status_code}"
             logger.warning(f"URL returned status code {status_code}: {url}")
 
     except requests.HTTPError as http_err:
+        error_status_messages = {
+            400: "Bad Request (400)",
+            401: "Unauthorized (401)",
+            403: "Forbidden (403)",
+            404: "Not Found (404)",
+            500: "Internal Server Error (500)",
+            503: "Service Unavailable (503)",
+        }
+
         status_code = "Error"
-        if http_err.response.status_code == 400:
-            status_message = "Bad Request (400)"
-        elif http_err.response.status_code == 401:
-            status_message = "Unauthorized (401)"
-        elif http_err.response.status_code == 403:
-            status_message = "Forbidden (403)"
-        elif http_err.response.status_code == 404:
-            status_message = "Not Found (404)"
-        elif http_err.response.status_code == 500:
-            status_message = "Internal Server Error (500)"
-        elif http_err.response.status_code == 503:
-            status_message = "Service Unavailable (503)"
-        else:
-            status_message = f"HTTP error: {http_err}"
+        status_message = error_status_messages.get(http_err.response.status_code, f"HTTP error: {http_err}")
         logger.error(f"HTTP error occurred while checking URL {url}: {http_err}")
+
     except requests.RequestException as req_err:
         status_code = "Error"
         status_message = f"Request error: {req_err}"
         logger.error(f"Request error occurred while checking URL {url}: {req_err}")
+
     except Exception as e:
         status_code = "Error"
         status_message = f"Unexpected error: {e}"
@@ -171,11 +164,12 @@ def check_url_status(url, output_file_path):
         writer = csv.writer(output_file, delimiter=' ')
         writer.writerow([url, status_code, status_message])
 
+
 def check_urls_from_output(output_file_path, status_output_path):
     """Checks the status of URLs listed in the output CSV file and writes the results to another CSV file"""
     if not os.path.isfile(output_file_path):
         logger.error(f"The file {output_file_path} does not exist.")
-        return # Exits the function if the specified file does not exist
+        return  # Exits the function if the specified file does not exist
 
     with open(output_file_path, 'r', newline='', encoding='utf-8') as output_file:
         reader = csv.reader(output_file)
@@ -188,6 +182,7 @@ def check_urls_from_output(output_file_path, status_output_path):
             for row in reader:
                 url = row[2]  # Assuming URL is in the third column
                 check_url_status(url, status_output_path)
+
 
 def main():
     parser = argparse.ArgumentParser(description='Search for URLs using Google and save them to a file.')
@@ -208,13 +203,13 @@ def main():
 
     if args.check_url:
         check_url_status(args.check_url, args.status_output)
-        return # Stops the execution of the function if only a URL for status checking is provided
+        return  # Stops the execution of the function if only a URL for status checking is provided
 
     if args.check_output_urls:
         if not args.output_file:
             parser.error('--output_file is required to check URLs from the output file.')
         check_urls_from_output(args.output_file, args.status_output)
-        return # Stops the execution of the function after checking the status of URLs from the output file
+        return  # Stops the execution of the function after checking the status of URLs from the output file
 
     if not args.input_file or not args.output_file:
         parser.error(
