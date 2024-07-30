@@ -42,16 +42,15 @@ def search_and_save_urls_selenium(driver, locations, output_file_path):
             logger.info(f"Page loaded: {driver.current_url}")
             time.sleep(3)  # Allow time for the page to fully load
 
-            try:
-                first_element = driver.find_element(By.CSS_SELECTOR, '.yuRUbf a')
-                logger.info("First search result found")
-                new_url = first_element.get_attribute('href')
-                logger.success(f"Found URL: {new_url}")
 
-                writer.writerow([i + 1, location, new_url])
+            first_element = driver.find_element(By.CSS_SELECTOR, '.yuRUbf a')
+            logger.info("First search result found")
+            new_url = first_element.get_attribute('href')
+            logger.success(f"Found URL: {new_url}")
 
-            except Exception as e:
-                logger.error(f"An error occurred for the location {location}: {e}")
+            writer.writerow([i + 1, location, new_url])
+
+
 
 
 def search_and_save_urls_requests(locations, output_file_path):
@@ -74,43 +73,39 @@ def search_and_save_urls_requests(locations, output_file_path):
             search_url = f"https://www.google.com/search?q={location.replace(' ', '+')}"
             logger.info(f"Searching URL: {search_url}")
 
-            try:
-                response = requests.get(search_url, headers=headers, timeout=10)
-                response.raise_for_status()  # Raise an exception for HTTP errors
 
-                soup = BeautifulSoup(response.text, 'html.parser')
-                first_element = soup.select_one('.yuRUbf a')
+            response = requests.get(search_url, headers=headers, timeout=10)
+            response.raise_for_status()  # Raise an exception for HTTP errors
 
-                if first_element:
-                    relative_url = first_element['href']
-                    new_url = urljoin('https://www.google.com', relative_url)
-                    logger.success(f"Found URL: {new_url}")
-                    writer.writerow([i + 1, location, new_url])
-                else:
-                    logger.warning(f"No search result found for location {location}")
+            soup = BeautifulSoup(response.text, 'html.parser')
+            first_element = soup.select_one('.yuRUbf a')
 
-            except requests.RequestException as e:
-                logger.error(f"An error occurred for the location {location}: {e}")
+            if first_element:
+                relative_url = first_element['href']
+                new_url = urljoin('https://www.google.com', relative_url)
+                logger.success(f"Found URL: {new_url}")
+                writer.writerow([i + 1, location, new_url])
+            else:
+                logger.warning(f"No search result found for location {location}")
+
+
 
 def check_url_status(url, output_file_path):
     """Checks the status code of the given URL and writes the result to a CSV file"""
-    try:
-        response = requests.get(url, timeout=10)
-        status_code = response.status_code
-        if status_code == 200:
-            status_message = "Reachable"
-            logger.success(f"URL is reachable: {url}")
-        elif status_code == 404:
-            status_message = "Not Found (404)"
-            logger.error(f"URL not found (404): {url}")
-        else:
-            status_message = f"Status Code {status_code}"
-            logger.warning(f"URL returned status code {status_code}: {url}")
 
-    except requests.RequestException as e:
-        status_code = "Error"
-        status_message = f"Error: {e}"
-        logger.error(f"An error occurred while checking URL {url}: {e}")
+    response = requests.get(url, timeout=10)
+    status_code = response.status_code
+    if status_code == 200:
+        status_message = "Reachable"
+        logger.success(f"URL is reachable: {url}")
+    elif status_code == 404:
+        status_message = "Not Found (404)"
+        logger.error(f"URL not found (404): {url}")
+    else:
+        status_message = f"Status Code {status_code}"
+        logger.warning(f"URL returned status code {status_code}: {url}")
+
+
 
     with open(output_file_path, 'a', newline='', encoding='utf-8') as output_file:
         writer = csv.writer(output_file, delimiter=' ')
