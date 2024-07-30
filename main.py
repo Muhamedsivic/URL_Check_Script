@@ -59,8 +59,7 @@ def search_and_save_urls_selenium(driver, locations, output_file_path):
             except WebDriverException as e:
                 logger.error(f"WebDriver error occurred while searching for location {location}: {e}")
             except Exception as e:
-                logger.error(f"Unexpected error occurred while searching for location {location}: {e}")
-
+                logger.error(f"Unexpected error occurred while searching for location {location}: {e}") #test123
 
 def search_and_save_urls_requests(locations, output_file_path):
     """
