@@ -201,30 +201,32 @@ def main():
     args = parser.parse_args()
 
     if args.check_url:
+        # Check the status of a single URL and save the result to a CSV file
         check_url_status(args.check_url, args.status_output)
-        return  # Stops the execution of the function if only a URL for status checking is provided
-
-    if args.check_output_urls:
-        if not args.output_file:
-            parser.error('--output_file is required to check URLs from the output file.')
-        check_urls_from_output(args.output_file, args.status_output)
-        return  # Stops the execution of the function after checking the status of URLs from the output file
-
-    if not args.input_file or not args.output_file:
-        parser.error(
-            '--input_file and --output_file are required unless --check_url or --check_output_urls is specified.')
-
-    with open(args.input_file, 'r', newline='', encoding='utf-8') as input_file:
-        reader = csv.reader(input_file)
-        next(reader)  # Skip header row
-        locations = [row[0] for row in reader]  # Assuming locations are in the first column
-
-    if args.method == 'selenium':
-        driver = configure_driver()
-        search_and_save_urls_selenium(driver, locations, args.output_file)
-        driver.quit()
     else:
-        search_and_save_urls_requests(locations, args.output_file)
+        if args.check_output_urls:
+            if not args.output_file:
+                parser.error('--output_file is required to check URLs from the output file.')
+            # Check the status of URLs listed in the output CSV file and write the results to another CSV file
+            check_urls_from_output(args.output_file, args.status_output)
+        else:
+            if not args.input_file or not args.output_file:
+                parser.error(
+                    '--input_file and --output_file are required unless --check_url or --check_output_urls is specified.')
+
+            with open(args.input_file, 'r', newline='', encoding='utf-8') as input_file:
+                reader = csv.reader(input_file)
+                next(reader)  # Skip header row
+                locations = [row[0] for row in reader]  # Assuming locations are in the first column
+
+            if args.method == 'selenium':
+                driver = configure_driver()
+                # Search URLs using Selenium and save the results to a CSV file
+                search_and_save_urls_selenium(driver, locations, args.output_file)
+                driver.quit()
+            else:
+                # Search URLs using requests and save the results to a CSV file
+                search_and_save_urls_requests(locations, args.output_file)
 
 
 if __name__ == "__main__":
