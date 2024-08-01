@@ -331,3 +331,243 @@
 2024-07-30 09:20:09.259 | SUCCESS  | __main__:search_and_save_urls_requests:86 - Found URL: https://www.theheightsselfstorage.com/
 2024-07-30 09:20:09.259 | INFO     | __main__:search_and_save_urls_requests:74 - Searching URL: https://www.google.com/search?q=++++'HIGHWAY+63+MINI+STORAGE
 2024-07-30 09:20:10.173 | SUCCESS  | __main__:search_and_save_urls_requests:86 - Found URL: https://www.hwy63ministorage.com/
+2024-07-30 10:33:29.463 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.westrapidstorage.com/
+2024-07-30 10:33:29.885 | WARNING  | __main__:check_url_status:106 - URL returned status code 403: https://www.rentcafe.com/storage/ca/south-san-francisco/mateo-avenue-mini-storage-1168-san-mateo-avenue/default.aspx
+2024-07-30 10:33:30.572 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.facebook.com/ShieldsMtnStorage/
+2024-07-30 10:33:31.494 | WARNING  | __main__:check_url_status:106 - URL returned status code 403: https://www.extraspace.com/storage/facilities/us/maine/berwick/7684/
+2024-07-30 10:33:32.432 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://mystoragezone.com/
+2024-07-30 10:33:33.525 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.eastlongmeadowstorage.com/
+2024-07-30 10:33:34.900 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.sentrypark.com/all-locations
+2024-07-30 10:33:35.541 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.park150.com/
+2024-07-30 10:33:36.603 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.hsw.com.au/
+2024-07-30 10:33:37.525 | WARNING  | __main__:check_url_status:106 - URL returned status code 406: https://www.mtnministorage.com/
+2024-07-30 10:33:42.468 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://freedomstoragemanagement.com/locations/tx/lufkin/lufkin-climate-controlled-self-storage/
+2024-07-30 10:33:44.062 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.publicstorage.com/
+2024-07-30 10:33:45.125 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.lakeparkstorage.com/
+2024-07-30 10:33:46.015 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.safkeep.com/self-storage-locations/hawaii/kailua-kona-hi-storage-units/76-6201-walua-road/
+2024-07-30 10:33:46.796 | WARNING  | __main__:check_url_status:106 - URL returned status code 403: https://www.extraspace.com/
+2024-07-30 10:33:47.750 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.devonselfstorage.com/
+2024-07-30 10:33:48.907 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.tmgindustrial.com/collections/storage
+2024-07-30 10:33:50.212 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.communitystorage.com/
+2024-07-30 10:33:51.286 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.theheightsselfstorage.com/
+2024-07-30 10:33:52.353 | SUCCESS  | __main__:check_url_status:100 - URL is reachable: https://www.hwy63ministorage.com/
+2024-07-30 10:33:54.990 | INFO     | __main__:search_and_save_urls_requests:74 - Searching URL: https://www.google.com/search?q=++++WEST+RAPID+STORAGE+UNITS
+2024-07-30 10:33:57.404 | SUCCESS  | __main__:search_and_save_urls_requests:86 - Found URL: https://www.westrapidstorage.com/
+2024-07-30 10:33:57.419 | INFO     | __main__:search_and_save_urls_requests:74 - Searching URL: https://www.google.com/search?q=++++'MATEO+AVENUE+MINI-STORAGE
+2024-07-30 10:33:58.841 | SUCCESS  | __main__:search_and_save_urls_requests:86 - Found URL: https://www.rentcafe.com/storage/ca/south-san-francisco/mateo-avenue-mini-storage-1168-san-mateo-avenue/default.aspx
+2024-07-30 10:33:58.857 | INFO     | __main__:search_and_save_urls_requests:74 - Searching URL: https://www.google.com/search?q=++++'SHIELDS+MOUNTAIN+MINI+STORAGE
+2024-07-30 10:34:01.060 | SUCCESS  | __main__:search_and_save_urls_requests:86 - Found URL: https://www.facebook.com/ShieldsMtnStorage/
+2024-07-30 10:34:01.060 | INFO     | __main__:search_and_save_urls_requests:74 - Searching URL: https://www.google.com/search?q=++++'BERWICK+SELF+STORAGE+AT+560+PORTLAND+ST
+2024-07-30 10:34:04.201 | SUCCESS  | __main__:search_and_save_urls_requests:86 - Found URL: https://www.extraspace.com/storage/facilities/us/maine/berwick/7684/
+2024-07-30 10:34:04.201 | INFO     | __main__:search_and_save_urls_requests:74 - Searching URL: https://www.google.com/search?q=++++'STORAGE+ZONE+SELF+STORAGE+AND+BUSINESS+CENTERS
+2024-07-30 10:34:06.669 | SUCCESS  | __main__:search_and_save_urls_requests:86 - Found URL: https://mystoragezone.com/
+2024-07-30 10:34:06.669 | INFO     | __main__:search_and_save_urls_requests:74 - Searching URL: https://www.google.com/search?q=++++'East+Longmeadow+Self+Storage
+2024-07-30 10:34:09.263 | SUCCESS  | __main__:search_and_save_urls_requests:86 - Found URL: https://www.eastlongmeadowstorage.com/
+2024-07-30 10:34:09.263 | INFO     | __main__:search_and_save_urls_requests:74 - Searching URL: https://www.google.com/search?q=++++'Agate+Road+Mini+Storage+&+Rv
+2024-07-30 10:34:11.419 | SUCCESS  | __main__:search_and_save_urls_requests:86 - Found URL: https://www.sentrypark.com/all-locations
+2024-07-30 10:34:11.419 | INFO     | __main__:search_and_save_urls_requests:74 - Searching URL: https://www.google.com/search?q=++++'Park+150+Self+Service+Storage
+2024-07-30 10:34:13.904 | SUCCESS  | __main__:search_and_save_urls_requests:86 - Found URL: https://www.park150.com/
+2024-07-30 10:34:13.904 | INFO     | __main__:search_and_save_urls_requests:74 - Searching URL: https://www.google.com/search?q=++++'STORAGE+WORLD
+2024-07-30 10:34:15.919 | SUCCESS  | __main__:search_and_save_urls_requests:86 - Found URL: https://storageworld.co.uk/
+2024-07-30 10:34:15.919 | INFO     | __main__:search_and_save_urls_requests:74 - Searching URL: https://www.google.com/search?q=++++'Mountain+Mini+Storage
+2024-07-30 10:34:17.984 | SUCCESS  | __main__:search_and_save_urls_requests:86 - Found URL: https://www.mtnministorage.com/
+2024-07-30 10:34:17.984 | INFO     | __main__:search_and_save_urls_requests:74 - Searching URL: https://www.google.com/search?q=++++'Lufkin+Climate+Controlled+Storage
+2024-07-30 10:34:20.297 | SUCCESS  | __main__:search_and_save_urls_requests:86 - Found URL: https://freedomstoragemanagement.com/locations/tx/lufkin/lufkin-climate-controlled-self-storage/
+2024-07-30 10:34:20.297 | INFO     | __main__:search_and_save_urls_requests:74 - Searching URL: https://www.google.com/search?q=++++'PUBLIC+STORAGE
+2024-07-30 10:34:21.953 | SUCCESS  | __main__:search_and_save_urls_requests:86 - Found URL: https://www.publicstorage.com/
+2024-07-30 10:34:21.968 | INFO     | __main__:search_and_save_urls_requests:74 - Searching URL: https://www.google.com/search?q=++++'Lake+Park+Self+Storage
+2024-07-30 10:34:24.343 | SUCCESS  | __main__:search_and_save_urls_requests:86 - Found URL: https://www.lakeparkstorage.com/
+2024-07-30 10:34:24.343 | INFO     | __main__:search_and_save_urls_requests:74 - Searching URL: https://www.google.com/search?q=++++'Power+Self+Storage+-+Kuakini
+2024-07-30 10:34:27.281 | SUCCESS  | __main__:search_and_save_urls_requests:86 - Found URL: https://www.safkeep.com/self-storage-locations/hawaii/kailua-kona-hi-storage-units/76-6201-walua-road/
+2024-07-30 10:34:27.297 | INFO     | __main__:search_and_save_urls_requests:74 - Searching URL: https://www.google.com/search?q=++++'Extra+Space+Storage
+2024-07-30 10:34:29.750 | SUCCESS  | __main__:search_and_save_urls_requests:86 - Found URL: https://www.extraspace.com/
+2024-07-30 10:34:29.750 | INFO     | __main__:search_and_save_urls_requests:74 - Searching URL: https://www.google.com/search?q=++++'Devon+Self+Storage
+2024-07-30 10:34:31.359 | SUCCESS  | __main__:search_and_save_urls_requests:86 - Found URL: https://www.devonselfstorage.com/
+2024-07-30 10:34:31.359 | INFO     | __main__:search_and_save_urls_requests:74 - Searching URL: https://www.google.com/search?q=++++'Tmg+Storage+Units
+2024-07-30 10:34:33.031 | SUCCESS  | __main__:search_and_save_urls_requests:86 - Found URL: https://www.tmgindustrial.com/collections/storage
+2024-07-30 10:34:33.031 | INFO     | __main__:search_and_save_urls_requests:74 - Searching URL: https://www.google.com/search?q=++++'Comstor+Self+Storage++Russells+Point
+2024-07-30 10:34:35.407 | SUCCESS  | __main__:search_and_save_urls_requests:86 - Found URL: https://www.communitystorage.com/
+2024-07-30 10:34:35.407 | INFO     | __main__:search_and_save_urls_requests:74 - Searching URL: https://www.google.com/search?q=++++'HEIGHTS+SELF+STORAGE
+2024-07-30 10:34:37.423 | SUCCESS  | __main__:search_and_save_urls_requests:86 - Found URL: https://www.theheightsselfstorage.com/
+2024-07-30 10:34:37.423 | INFO     | __main__:search_and_save_urls_requests:74 - Searching URL: https://www.google.com/search?q=++++'HIGHWAY+63+MINI+STORAGE
+2024-07-30 10:34:40.220 | SUCCESS  | __main__:search_and_save_urls_requests:86 - Found URL: https://www.hwy63ministorage.com/
+2024-07-30 12:11:32.642 | SUCCESS  | __main__:check_url_status:120 - URL is reachable: https://www.westrapidstorage.com/
+2024-07-30 12:11:33.122 | WARNING  | __main__:check_url_status:132 - URL returned status code 403: https://www.rentcafe.com/storage/ca/south-san-francisco/mateo-avenue-mini-storage-1168-san-mateo-avenue/default.aspx
+2024-07-30 12:11:33.798 | SUCCESS  | __main__:check_url_status:120 - URL is reachable: https://www.facebook.com/ShieldsMtnStorage/
+2024-07-30 12:11:34.972 | WARNING  | __main__:check_url_status:132 - URL returned status code 403: https://www.extraspace.com/storage/facilities/us/maine/berwick/7684/
+2024-07-30 12:11:35.904 | SUCCESS  | __main__:check_url_status:120 - URL is reachable: https://mystoragezone.com/
+2024-07-30 12:11:37.009 | SUCCESS  | __main__:check_url_status:120 - URL is reachable: https://www.eastlongmeadowstorage.com/
+2024-07-30 12:11:38.209 | SUCCESS  | __main__:check_url_status:120 - URL is reachable: https://www.sentrypark.com/all-locations
+2024-07-30 12:11:38.926 | SUCCESS  | __main__:check_url_status:120 - URL is reachable: https://www.park150.com/
+2024-07-30 12:11:39.561 | WARNING  | __main__:check_url_status:132 - URL returned status code 403: https://storageworld.co.uk/
+2024-07-30 12:11:40.446 | WARNING  | __main__:check_url_status:132 - URL returned status code 406: https://www.mtnministorage.com/
+2024-07-30 12:11:45.287 | SUCCESS  | __main__:check_url_status:120 - URL is reachable: https://freedomstoragemanagement.com/locations/tx/lufkin/lufkin-climate-controlled-self-storage/
+2024-07-30 12:11:46.909 | SUCCESS  | __main__:check_url_status:120 - URL is reachable: https://www.publicstorage.com/
+2024-07-30 12:11:48.944 | SUCCESS  | __main__:check_url_status:120 - URL is reachable: https://www.lakeparkstorage.com/
+2024-07-30 12:11:49.852 | SUCCESS  | __main__:check_url_status:120 - URL is reachable: https://www.safkeep.com/self-storage-locations/hawaii/kailua-kona-hi-storage-units/76-6201-walua-road/
+2024-07-30 12:11:50.535 | WARNING  | __main__:check_url_status:132 - URL returned status code 403: https://www.extraspace.com/
+2024-07-30 12:11:51.479 | SUCCESS  | __main__:check_url_status:120 - URL is reachable: https://www.devonselfstorage.com/
+2024-07-30 12:11:52.834 | SUCCESS  | __main__:check_url_status:120 - URL is reachable: https://www.tmgindustrial.com/collections/storage
+2024-07-30 12:11:54.091 | SUCCESS  | __main__:check_url_status:120 - URL is reachable: https://www.communitystorage.com/
+2024-07-30 12:11:55.179 | SUCCESS  | __main__:check_url_status:120 - URL is reachable: https://www.theheightsselfstorage.com/
+2024-07-30 12:11:56.220 | SUCCESS  | __main__:check_url_status:120 - URL is reachable: https://www.hwy63ministorage.com/
+2024-07-30 12:23:46.370 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.westrapidstorage.com/
+2024-07-30 12:23:46.886 | WARNING  | __main__:check_url_status:142 - URL returned status code 403: https://www.rentcafe.com/storage/ca/south-san-francisco/mateo-avenue-mini-storage-1168-san-mateo-avenue/default.aspx
+2024-07-30 12:23:47.613 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.facebook.com/ShieldsMtnStorage/
+2024-07-30 12:23:48.635 | WARNING  | __main__:check_url_status:142 - URL returned status code 403: https://www.extraspace.com/storage/facilities/us/maine/berwick/7684/
+2024-07-30 12:23:49.621 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://mystoragezone.com/
+2024-07-30 12:23:50.822 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.eastlongmeadowstorage.com/
+2024-07-30 12:23:52.041 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.sentrypark.com/all-locations
+2024-07-30 12:23:52.798 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.park150.com/
+2024-07-30 12:23:53.401 | WARNING  | __main__:check_url_status:142 - URL returned status code 403: https://storageworld.co.uk/
+2024-07-30 12:23:54.346 | WARNING  | __main__:check_url_status:142 - URL returned status code 406: https://www.mtnministorage.com/
+2024-07-30 12:23:55.252 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://freedomstoragemanagement.com/locations/tx/lufkin/lufkin-climate-controlled-self-storage/
+2024-07-30 12:23:56.977 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.publicstorage.com/
+2024-07-30 12:23:58.057 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.lakeparkstorage.com/
+2024-07-30 12:23:58.980 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.safkeep.com/self-storage-locations/hawaii/kailua-kona-hi-storage-units/76-6201-walua-road/
+2024-07-30 12:23:59.571 | WARNING  | __main__:check_url_status:142 - URL returned status code 403: https://www.extraspace.com/
+2024-07-30 12:24:00.480 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.devonselfstorage.com/
+2024-07-30 12:24:00.945 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.tmgindustrial.com/collections/storage
+2024-07-30 12:24:02.248 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.communitystorage.com/
+2024-07-30 12:24:03.352 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.theheightsselfstorage.com/
+2024-07-30 12:24:04.434 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.hwy63ministorage.com/
+2024-07-30 12:24:11.409 | INFO     | __main__:search_and_save_urls_requests:84 - Searching URL: https://www.google.com/search?q=++++WEST+RAPID+STORAGE+UNITS
+2024-07-30 12:24:13.561 | SUCCESS  | __main__:search_and_save_urls_requests:96 - Found URL: https://www.westrapidstorage.com/
+2024-07-30 12:24:13.563 | INFO     | __main__:search_and_save_urls_requests:84 - Searching URL: https://www.google.com/search?q=++++'MATEO+AVENUE+MINI-STORAGE
+2024-07-30 12:24:15.688 | SUCCESS  | __main__:search_and_save_urls_requests:96 - Found URL: https://www.rentcafe.com/storage/ca/south-san-francisco/mateo-avenue-mini-storage-1168-san-mateo-avenue/default.aspx
+2024-07-30 12:24:15.690 | INFO     | __main__:search_and_save_urls_requests:84 - Searching URL: https://www.google.com/search?q=++++'SHIELDS+MOUNTAIN+MINI+STORAGE
+2024-07-30 12:24:17.955 | SUCCESS  | __main__:search_and_save_urls_requests:96 - Found URL: https://www.facebook.com/ShieldsMtnStorage/
+2024-07-30 12:24:17.957 | INFO     | __main__:search_and_save_urls_requests:84 - Searching URL: https://www.google.com/search?q=++++'BERWICK+SELF+STORAGE+AT+560+PORTLAND+ST
+2024-07-30 12:24:19.988 | SUCCESS  | __main__:search_and_save_urls_requests:96 - Found URL: https://www.extraspace.com/storage/facilities/us/maine/berwick/7684/
+2024-07-30 12:24:19.990 | INFO     | __main__:search_and_save_urls_requests:84 - Searching URL: https://www.google.com/search?q=++++'STORAGE+ZONE+SELF+STORAGE+AND+BUSINESS+CENTERS
+2024-07-30 12:24:22.080 | SUCCESS  | __main__:search_and_save_urls_requests:96 - Found URL: https://mystoragezone.com/
+2024-07-30 12:24:22.082 | INFO     | __main__:search_and_save_urls_requests:84 - Searching URL: https://www.google.com/search?q=++++'East+Longmeadow+Self+Storage
+2024-07-30 12:24:23.649 | SUCCESS  | __main__:search_and_save_urls_requests:96 - Found URL: https://www.eastlongmeadowstorage.com/
+2024-07-30 12:24:23.651 | INFO     | __main__:search_and_save_urls_requests:84 - Searching URL: https://www.google.com/search?q=++++'Agate+Road+Mini+Storage+&+Rv
+2024-07-30 12:24:26.551 | SUCCESS  | __main__:search_and_save_urls_requests:96 - Found URL: https://www.sentrypark.com/all-locations
+2024-07-30 12:24:26.552 | INFO     | __main__:search_and_save_urls_requests:84 - Searching URL: https://www.google.com/search?q=++++'Park+150+Self+Service+Storage
+2024-07-30 12:24:29.583 | SUCCESS  | __main__:search_and_save_urls_requests:96 - Found URL: https://www.park150.com/
+2024-07-30 12:24:29.585 | INFO     | __main__:search_and_save_urls_requests:84 - Searching URL: https://www.google.com/search?q=++++'STORAGE+WORLD
+2024-07-30 12:24:31.984 | SUCCESS  | __main__:search_and_save_urls_requests:96 - Found URL: https://www.hsw.com.au/
+2024-07-30 12:24:31.985 | INFO     | __main__:search_and_save_urls_requests:84 - Searching URL: https://www.google.com/search?q=++++'Mountain+Mini+Storage
+2024-07-30 12:24:33.658 | SUCCESS  | __main__:search_and_save_urls_requests:96 - Found URL: https://www.mtnministorage.com/
+2024-07-30 12:24:33.660 | INFO     | __main__:search_and_save_urls_requests:84 - Searching URL: https://www.google.com/search?q=++++'Lufkin+Climate+Controlled+Storage
+2024-07-30 12:24:36.654 | SUCCESS  | __main__:search_and_save_urls_requests:96 - Found URL: https://freedomstoragemanagement.com/locations/tx/lufkin/lufkin-climate-controlled-self-storage/
+2024-07-30 12:24:36.656 | INFO     | __main__:search_and_save_urls_requests:84 - Searching URL: https://www.google.com/search?q=++++'PUBLIC+STORAGE
+2024-07-30 12:24:38.290 | SUCCESS  | __main__:search_and_save_urls_requests:96 - Found URL: https://www.publicstorage.com/
+2024-07-30 12:24:38.291 | INFO     | __main__:search_and_save_urls_requests:84 - Searching URL: https://www.google.com/search?q=++++'Lake+Park+Self+Storage
+2024-07-30 12:24:40.681 | SUCCESS  | __main__:search_and_save_urls_requests:96 - Found URL: https://www.lakeparkstorage.com/
+2024-07-30 12:24:40.681 | INFO     | __main__:search_and_save_urls_requests:84 - Searching URL: https://www.google.com/search?q=++++'Power+Self+Storage+-+Kuakini
+2024-07-30 12:24:43.311 | SUCCESS  | __main__:search_and_save_urls_requests:96 - Found URL: https://www.safkeep.com/self-storage-locations/hawaii/kailua-kona-hi-storage-units/76-6201-walua-road/
+2024-07-30 12:24:43.313 | INFO     | __main__:search_and_save_urls_requests:84 - Searching URL: https://www.google.com/search?q=++++'Extra+Space+Storage
+2024-07-30 12:24:45.869 | SUCCESS  | __main__:search_and_save_urls_requests:96 - Found URL: https://www.extraspace.com/
+2024-07-30 12:24:45.870 | INFO     | __main__:search_and_save_urls_requests:84 - Searching URL: https://www.google.com/search?q=++++'Devon+Self+Storage
+2024-07-30 12:24:48.264 | SUCCESS  | __main__:search_and_save_urls_requests:96 - Found URL: https://www.devonselfstorage.com/
+2024-07-30 12:24:48.265 | INFO     | __main__:search_and_save_urls_requests:84 - Searching URL: https://www.google.com/search?q=++++'Tmg+Storage+Units
+2024-07-30 12:24:50.720 | SUCCESS  | __main__:search_and_save_urls_requests:96 - Found URL: https://www.tmgindustrial.com/collections/storage
+2024-07-30 12:24:50.722 | INFO     | __main__:search_and_save_urls_requests:84 - Searching URL: https://www.google.com/search?q=++++'Comstor+Self+Storage++Russells+Point
+2024-07-30 12:24:53.705 | SUCCESS  | __main__:search_and_save_urls_requests:96 - Found URL: https://www.communitystorage.com/
+2024-07-30 12:24:53.706 | INFO     | __main__:search_and_save_urls_requests:84 - Searching URL: https://www.google.com/search?q=++++'HEIGHTS+SELF+STORAGE
+2024-07-30 12:24:55.034 | SUCCESS  | __main__:search_and_save_urls_requests:96 - Found URL: https://www.theheightsselfstorage.com/
+2024-07-30 12:24:55.036 | INFO     | __main__:search_and_save_urls_requests:84 - Searching URL: https://www.google.com/search?q=++++'HIGHWAY+63+MINI+STORAGE
+2024-07-30 12:24:57.969 | SUCCESS  | __main__:search_and_save_urls_requests:96 - Found URL: https://www.hwy63ministorage.com/
+2024-07-30 12:26:27.421 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.westrapidstorage.com/
+2024-07-30 12:26:27.915 | WARNING  | __main__:check_url_status:142 - URL returned status code 403: https://www.rentcafe.com/storage/ca/south-san-francisco/mateo-avenue-mini-storage-1168-san-mateo-avenue/default.aspx
+2024-07-30 12:26:28.755 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.facebook.com/ShieldsMtnStorage/
+2024-07-30 12:26:29.680 | WARNING  | __main__:check_url_status:142 - URL returned status code 403: https://www.extraspace.com/storage/facilities/us/maine/berwick/7684/
+2024-07-30 12:26:30.584 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://mystoragezone.com/
+2024-07-30 12:26:31.702 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.eastlongmeadowstorage.com/
+2024-07-30 12:26:32.931 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.sentrypark.com/all-locations
+2024-07-30 12:26:33.603 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.park150.com/
+2024-07-30 12:26:35.014 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.hsw.com.au/
+2024-07-30 12:26:35.947 | WARNING  | __main__:check_url_status:142 - URL returned status code 406: https://www.mtnministorage.com/
+2024-07-30 12:26:36.881 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://freedomstoragemanagement.com/locations/tx/lufkin/lufkin-climate-controlled-self-storage/
+2024-07-30 12:26:38.461 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.publicstorage.com/
+2024-07-30 12:26:40.388 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.lakeparkstorage.com/
+2024-07-30 12:26:41.307 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.safkeep.com/self-storage-locations/hawaii/kailua-kona-hi-storage-units/76-6201-walua-road/
+2024-07-30 12:26:42.159 | WARNING  | __main__:check_url_status:142 - URL returned status code 403: https://www.extraspace.com/
+2024-07-30 12:26:43.054 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.devonselfstorage.com/
+2024-07-30 12:26:43.556 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.tmgindustrial.com/collections/storage
+2024-07-30 12:26:44.652 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.communitystorage.com/
+2024-07-30 12:26:45.699 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.theheightsselfstorage.com/
+2024-07-30 12:26:46.790 | SUCCESS  | __main__:check_url_status:130 - URL is reachable: https://www.hwy63ministorage.com/
+2024-07-30 12:27:07.058 | INFO     | __main__:search_and_save_urls_selenium:40 - Searching URL: https://www.google.com/search?q=++++WEST+RAPID+STORAGE+UNITS
+2024-07-30 12:27:09.974 | INFO     | __main__:search_and_save_urls_selenium:45 - Page loaded: https://www.google.com/search?q=++++WEST+RAPID+STORAGE+UNITS
+2024-07-30 12:27:13.021 | INFO     | __main__:search_and_save_urls_selenium:49 - First search result found
+2024-07-30 12:27:13.046 | SUCCESS  | __main__:search_and_save_urls_selenium:51 - Found URL: https://www.westrapidstorage.com/
+2024-07-30 12:27:13.051 | INFO     | __main__:search_and_save_urls_selenium:40 - Searching URL: https://www.google.com/search?q=++++'MATEO+AVENUE+MINI-STORAGE
+2024-07-30 12:27:15.325 | INFO     | __main__:search_and_save_urls_selenium:45 - Page loaded: https://www.google.com/search?q=++++%27MATEO+AVENUE+MINI-STORAGE
+2024-07-30 12:27:18.334 | INFO     | __main__:search_and_save_urls_selenium:49 - First search result found
+2024-07-30 12:27:18.341 | SUCCESS  | __main__:search_and_save_urls_selenium:51 - Found URL: https://www.rentcafe.com/storage/ca/south-san-francisco/mateo-avenue-mini-storage-1168-san-mateo-avenue/default.aspx
+2024-07-30 12:27:18.342 | INFO     | __main__:search_and_save_urls_selenium:40 - Searching URL: https://www.google.com/search?q=++++'SHIELDS+MOUNTAIN+MINI+STORAGE
+2024-07-30 12:27:20.590 | INFO     | __main__:search_and_save_urls_selenium:45 - Page loaded: https://www.google.com/search?q=++++%27SHIELDS+MOUNTAIN+MINI+STORAGE
+2024-07-30 12:27:23.600 | INFO     | __main__:search_and_save_urls_selenium:49 - First search result found
+2024-07-30 12:27:23.606 | SUCCESS  | __main__:search_and_save_urls_selenium:51 - Found URL: https://www.facebook.com/ShieldsMtnStorage/
+2024-07-30 12:27:23.607 | INFO     | __main__:search_and_save_urls_selenium:40 - Searching URL: https://www.google.com/search?q=++++'BERWICK+SELF+STORAGE+AT+560+PORTLAND+ST
+2024-07-30 12:27:25.914 | INFO     | __main__:search_and_save_urls_selenium:45 - Page loaded: https://www.google.com/search?q=++++%27BERWICK+SELF+STORAGE+AT+560+PORTLAND+ST
+2024-07-30 12:27:28.946 | INFO     | __main__:search_and_save_urls_selenium:49 - First search result found
+2024-07-30 12:27:28.961 | SUCCESS  | __main__:search_and_save_urls_selenium:51 - Found URL: https://www.extraspace.com/storage/facilities/us/maine/berwick/7684/
+2024-07-30 12:27:28.964 | INFO     | __main__:search_and_save_urls_selenium:40 - Searching URL: https://www.google.com/search?q=++++'STORAGE+ZONE+SELF+STORAGE+AND+BUSINESS+CENTERS
+2024-07-30 12:27:30.475 | INFO     | __main__:search_and_save_urls_selenium:45 - Page loaded: https://www.google.com/search?q=++++%27STORAGE+ZONE+SELF+STORAGE+AND+BUSINESS+CENTERS
+2024-07-30 12:27:33.492 | INFO     | __main__:search_and_save_urls_selenium:49 - First search result found
+2024-07-30 12:27:33.501 | SUCCESS  | __main__:search_and_save_urls_selenium:51 - Found URL: https://mystoragezone.com/
+2024-07-30 12:27:33.509 | INFO     | __main__:search_and_save_urls_selenium:40 - Searching URL: https://www.google.com/search?q=++++'East+Longmeadow+Self+Storage
+2024-07-30 12:27:35.261 | INFO     | __main__:search_and_save_urls_selenium:45 - Page loaded: https://www.google.com/search?q=++++%27East+Longmeadow+Self+Storage
+2024-07-30 12:27:38.293 | INFO     | __main__:search_and_save_urls_selenium:49 - First search result found
+2024-07-30 12:27:38.318 | SUCCESS  | __main__:search_and_save_urls_selenium:51 - Found URL: https://www.eastlongmeadowstorage.com/
+2024-07-30 12:27:38.323 | INFO     | __main__:search_and_save_urls_selenium:40 - Searching URL: https://www.google.com/search?q=++++'Agate+Road+Mini+Storage+&+Rv
+2024-07-30 12:27:39.889 | INFO     | __main__:search_and_save_urls_selenium:45 - Page loaded: https://www.google.com/search?q=++++%27Agate+Road+Mini+Storage+&+Rv
+2024-07-30 12:27:42.911 | INFO     | __main__:search_and_save_urls_selenium:49 - First search result found
+2024-07-30 12:27:42.932 | SUCCESS  | __main__:search_and_save_urls_selenium:51 - Found URL: https://www.sentrypark.com/all-locations
+2024-07-30 12:27:42.937 | INFO     | __main__:search_and_save_urls_selenium:40 - Searching URL: https://www.google.com/search?q=++++'Park+150+Self+Service+Storage
+2024-07-30 12:27:44.808 | INFO     | __main__:search_and_save_urls_selenium:45 - Page loaded: https://www.google.com/search?q=++++%27Park+150+Self+Service+Storage
+2024-07-30 12:27:47.820 | INFO     | __main__:search_and_save_urls_selenium:49 - First search result found
+2024-07-30 12:27:47.831 | SUCCESS  | __main__:search_and_save_urls_selenium:51 - Found URL: https://www.park150.com/
+2024-07-30 12:27:47.833 | INFO     | __main__:search_and_save_urls_selenium:40 - Searching URL: https://www.google.com/search?q=++++'STORAGE+WORLD
+2024-07-30 12:27:49.226 | INFO     | __main__:search_and_save_urls_selenium:45 - Page loaded: https://www.google.com/search?q=++++%27STORAGE+WORLD
+2024-07-30 12:27:52.281 | INFO     | __main__:search_and_save_urls_selenium:49 - First search result found
+2024-07-30 12:27:52.306 | SUCCESS  | __main__:search_and_save_urls_selenium:51 - Found URL: https://storageworld.co.uk/
+2024-07-30 12:27:52.310 | INFO     | __main__:search_and_save_urls_selenium:40 - Searching URL: https://www.google.com/search?q=++++'Mountain+Mini+Storage
+2024-07-30 12:27:53.695 | INFO     | __main__:search_and_save_urls_selenium:45 - Page loaded: https://www.google.com/search?q=++++%27Mountain+Mini+Storage
+2024-07-30 12:27:56.713 | INFO     | __main__:search_and_save_urls_selenium:49 - First search result found
+2024-07-30 12:27:56.721 | SUCCESS  | __main__:search_and_save_urls_selenium:51 - Found URL: https://www.mtnministorage.com/
+2024-07-30 12:27:56.730 | INFO     | __main__:search_and_save_urls_selenium:40 - Searching URL: https://www.google.com/search?q=++++'Lufkin+Climate+Controlled+Storage
+2024-07-30 12:27:58.965 | INFO     | __main__:search_and_save_urls_selenium:45 - Page loaded: https://www.google.com/search?q=++++%27Lufkin+Climate+Controlled+Storage
+2024-07-30 12:28:02.000 | INFO     | __main__:search_and_save_urls_selenium:49 - First search result found
+2024-07-30 12:28:02.019 | SUCCESS  | __main__:search_and_save_urls_selenium:51 - Found URL: https://freedomstoragemanagement.com/locations/tx/lufkin/lufkin-climate-controlled-self-storage/
+2024-07-30 12:28:02.022 | INFO     | __main__:search_and_save_urls_selenium:40 - Searching URL: https://www.google.com/search?q=++++'PUBLIC+STORAGE
+2024-07-30 12:28:03.545 | INFO     | __main__:search_and_save_urls_selenium:45 - Page loaded: https://www.google.com/search?q=++++%27PUBLIC+STORAGE
+2024-07-30 12:28:06.572 | INFO     | __main__:search_and_save_urls_selenium:49 - First search result found
+2024-07-30 12:28:06.592 | SUCCESS  | __main__:search_and_save_urls_selenium:51 - Found URL: https://www.publicstorage.com/
+2024-07-30 12:28:06.597 | INFO     | __main__:search_and_save_urls_selenium:40 - Searching URL: https://www.google.com/search?q=++++'Lake+Park+Self+Storage
+2024-07-30 12:28:08.113 | INFO     | __main__:search_and_save_urls_selenium:45 - Page loaded: https://www.google.com/search?q=++++%27Lake+Park+Self+Storage
+2024-07-30 12:28:11.121 | INFO     | __main__:search_and_save_urls_selenium:49 - First search result found
+2024-07-30 12:28:11.121 | SUCCESS  | __main__:search_and_save_urls_selenium:51 - Found URL: https://www.lakeparkstorage.com/
+2024-07-30 12:28:11.130 | INFO     | __main__:search_and_save_urls_selenium:40 - Searching URL: https://www.google.com/search?q=++++'Power+Self+Storage+-+Kuakini
+2024-07-30 12:28:12.990 | INFO     | __main__:search_and_save_urls_selenium:45 - Page loaded: https://www.google.com/search?q=++++%27Power+Self+Storage+-+Kuakini
+2024-07-30 12:28:16.019 | INFO     | __main__:search_and_save_urls_selenium:49 - First search result found
+2024-07-30 12:28:16.035 | SUCCESS  | __main__:search_and_save_urls_selenium:51 - Found URL: https://www.safkeep.com/self-storage-locations/hawaii/kailua-kona-hi-storage-units/76-6201-walua-road/
+2024-07-30 12:28:16.040 | INFO     | __main__:search_and_save_urls_selenium:40 - Searching URL: https://www.google.com/search?q=++++'Extra+Space+Storage
+2024-07-30 12:28:17.510 | INFO     | __main__:search_and_save_urls_selenium:45 - Page loaded: https://www.google.com/search?q=++++%27Extra+Space+Storage
+2024-07-30 12:28:20.544 | INFO     | __main__:search_and_save_urls_selenium:49 - First search result found
+2024-07-30 12:28:20.562 | SUCCESS  | __main__:search_and_save_urls_selenium:51 - Found URL: https://www.extraspace.com/
+2024-07-30 12:28:20.567 | INFO     | __main__:search_and_save_urls_selenium:40 - Searching URL: https://www.google.com/search?q=++++'Devon+Self+Storage
+2024-07-30 12:28:21.971 | INFO     | __main__:search_and_save_urls_selenium:45 - Page loaded: https://www.google.com/search?q=++++%27Devon+Self+Storage
+2024-07-30 12:28:25.005 | INFO     | __main__:search_and_save_urls_selenium:49 - First search result found
+2024-07-30 12:28:25.021 | SUCCESS  | __main__:search_and_save_urls_selenium:51 - Found URL: https://www.devonselfstorage.com/
+2024-07-30 12:28:25.021 | INFO     | __main__:search_and_save_urls_selenium:40 - Searching URL: https://www.google.com/search?q=++++'Tmg+Storage+Units
+2024-07-30 12:28:26.551 | INFO     | __main__:search_and_save_urls_selenium:45 - Page loaded: https://www.google.com/search?q=++++%27Tmg+Storage+Units
+2024-07-30 12:28:29.583 | INFO     | __main__:search_and_save_urls_selenium:49 - First search result found
+2024-07-30 12:28:29.600 | SUCCESS  | __main__:search_and_save_urls_selenium:51 - Found URL: https://www.tmgindustrial.com/collections/storage
+2024-07-30 12:28:29.603 | INFO     | __main__:search_and_save_urls_selenium:40 - Searching URL: https://www.google.com/search?q=++++'Comstor+Self+Storage++Russells+Point
+2024-07-30 12:28:31.283 | INFO     | __main__:search_and_save_urls_selenium:45 - Page loaded: https://www.google.com/search?q=++++%27Comstor+Self+Storage++Russells+Point
+2024-07-30 12:28:34.316 | INFO     | __main__:search_and_save_urls_selenium:49 - First search result found
+2024-07-30 12:28:34.331 | SUCCESS  | __main__:search_and_save_urls_selenium:51 - Found URL: https://www.communitystorage.com/
+2024-07-30 12:28:34.331 | INFO     | __main__:search_and_save_urls_selenium:40 - Searching URL: https://www.google.com/search?q=++++'HEIGHTS+SELF+STORAGE
+2024-07-30 12:28:35.821 | INFO     | __main__:search_and_save_urls_selenium:45 - Page loaded: https://www.google.com/search?q=++++%27HEIGHTS+SELF+STORAGE
+2024-07-30 12:28:38.840 | INFO     | __main__:search_and_save_urls_selenium:49 - First search result found
+2024-07-30 12:28:38.855 | SUCCESS  | __main__:search_and_save_urls_selenium:51 - Found URL: https://www.theheightsselfstorage.com/
+2024-07-30 12:28:38.859 | INFO     | __main__:search_and_save_urls_selenium:40 - Searching URL: https://www.google.com/search?q=++++'HIGHWAY+63+MINI+STORAGE
+2024-07-30 12:28:41.343 | INFO     | __main__:search_and_save_urls_selenium:45 - Page loaded: https://www.google.com/search?q=++++%27HIGHWAY+63+MINI+STORAGE
+2024-07-30 12:28:44.355 | INFO     | __main__:search_and_save_urls_selenium:49 - First search result found
+2024-07-30 12:28:44.366 | SUCCESS  | __main__:search_and_save_urls_selenium:51 - Found URL: https://www.hwy63ministorage.com/
