@@ -19,6 +19,7 @@ logger.add(log_file_path, rotation="1 week", retention="2 weeks", level="INFO")
 
 def configure_driver():
     """Configures and returns the Chrome WebDriver"""
+    print("Configure driver hi!")
     return webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
 
